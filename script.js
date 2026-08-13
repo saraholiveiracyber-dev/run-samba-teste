@@ -1,47 +1,90 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const menuButton = document.querySelector(".menu-mobile");
+    const navbar = document.querySelector(".navbar");
     const menu = document.querySelector(".menu");
 
-    if (!menuButton || !menu) {
-        console.warn("Menu mobile não encontrado.");
+    if (!navbar || !menu) {
         return;
     }
 
-    menuButton.addEventListener("click", function (event) {
+    // ==================================================
+    // CRIAR BOTÃO MOBILE SE NÃO EXISTIR
+    // ==================================================
 
+    let menuMobile = navbar.querySelector(".menu-mobile");
+
+    if (!menuMobile) {
+
+        menuMobile = document.createElement("button");
+
+        menuMobile.className = "menu-mobile";
+
+        menuMobile.type = "button";
+
+        menuMobile.setAttribute(
+            "aria-label",
+            "Abrir menu"
+        );
+
+        menuMobile.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        menuMobile.innerHTML = `
+            <span></span>
+            <span></span>
+            <span></span>
+        `;
+
+        // Coloca o botão antes do menu
+        navbar.insertBefore(menuMobile, menu);
+    }
+
+
+    // ==================================================
+    // ABRIR / FECHAR MENU
+    // ==================================================
+
+    menuMobile.addEventListener("click", function (event) {
+
+        event.preventDefault();
         event.stopPropagation();
 
-        const aberto = menu.classList.toggle("active");
+        const aberto =
+            navbar.classList.toggle("menu-aberto");
 
-        menuButton.classList.toggle("active", aberto);
-
-        menuButton.setAttribute(
+        menuMobile.setAttribute(
             "aria-expanded",
             aberto ? "true" : "false"
         );
 
-        menuButton.setAttribute(
+        menuMobile.setAttribute(
             "aria-label",
-            aberto ? "Fechar menu" : "Abrir menu"
+            aberto
+                ? "Fechar menu"
+                : "Abrir menu"
         );
 
     });
 
 
+    // ==================================================
+    // FECHAR AO CLICAR EM UM LINK
+    // ==================================================
+
     menu.querySelectorAll("a").forEach(function (link) {
 
         link.addEventListener("click", function () {
 
-            menu.classList.remove("active");
-            menuButton.classList.remove("active");
+            navbar.classList.remove("menu-aberto");
 
-            menuButton.setAttribute(
+            menuMobile.setAttribute(
                 "aria-expanded",
                 "false"
             );
 
-            menuButton.setAttribute(
+            menuMobile.setAttribute(
                 "aria-label",
                 "Abrir menu"
             );
@@ -51,25 +94,44 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+    // ==================================================
+    // FECHAR AO CLICAR FORA
+    // ==================================================
+
     document.addEventListener("click", function (event) {
 
-        if (
-            menu.classList.contains("active") &&
-            !menu.contains(event.target) &&
-            !menuButton.contains(event.target)
-        ) {
+        if (!navbar.contains(event.target)) {
 
-            menu.classList.remove("active");
-            menuButton.classList.remove("active");
+            navbar.classList.remove("menu-aberto");
 
-            menuButton.setAttribute(
+            menuMobile.setAttribute(
                 "aria-expanded",
                 "false"
             );
 
-            menuButton.setAttribute(
+            menuMobile.setAttribute(
                 "aria-label",
                 "Abrir menu"
+            );
+
+        }
+
+    });
+
+
+    // ==================================================
+    // REDIMENSIONAMENTO
+    // ==================================================
+
+    window.addEventListener("resize", function () {
+
+        if (window.innerWidth > 768) {
+
+            navbar.classList.remove("menu-aberto");
+
+            menuMobile.setAttribute(
+                "aria-expanded",
+                "false"
             );
 
         }
