@@ -7596,3 +7596,188 @@ select {
     }
 
 }
+
+
+/* =========================================================
+   CORREÇÃO DEFINITIVA — MENU MOBILE GLOBAL
+   Run & Samba
+========================================================= */
+
+.menu-mobile {
+    display: none;
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        position: relative;
+    }
+
+    /* BOTÃO DOS 3 TRAÇOS */
+
+    .menu-mobile {
+        display: flex !important;
+
+        position: relative;
+
+        width: 44px;
+        height: 44px;
+
+        margin-left: auto;
+
+        padding: 0;
+
+        border: 0;
+
+        background: transparent;
+
+        align-items: center;
+        justify-content: center;
+
+        flex-direction: column;
+
+        gap: 5px;
+
+        z-index: 99999;
+    }
+
+
+    .menu-mobile span {
+        display: block !important;
+
+        width: 26px;
+        height: 3px;
+
+        background: #ffffff;
+
+        border-radius: 3px;
+
+        opacity: 1;
+
+        visibility: visible;
+
+        transition:
+            transform 0.25s ease,
+            opacity 0.25s ease;
+    }
+
+
+    /* =====================================================
+       MENU FECHADO
+    ===================================================== */
+
+    .menu {
+        display: none !important;
+    }
+
+
+    /* =====================================================
+       MENU ABERTO
+    ===================================================== */
+
+    .menu.active {
+        display: flex !important;
+
+        position: absolute;
+
+        top: 80px;
+        right: 20px;
+
+        width: 250px;
+
+        padding: 15px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 3px;
+
+        background: #080808;
+
+        border: 1px solid rgba(255, 255, 255, 0.15);
+
+        box-shadow:
+            0 20px 50px rgba(0, 0, 0, 0.65);
+
+        z-index: 99998;
+    }
+
+
+    .menu.active li {
+        display: block;
+
+        width: 100%;
+    }
+
+
+    .menu.active a {
+        display: block;
+
+        width: 100%;
+
+        padding: 15px 12px;
+
+        color: #ffffff;
+
+        font-size: 12px;
+
+        font-weight: 800;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    .menu.active a:hover {
+        color: #ffcc00;
+
+        background: rgba(255, 255, 255, 0.04);
+    }
+
+
+    /* =====================================================
+       TRANSFORMA OS 3 TRAÇOS EM X
+    ===================================================== */
+
+    .menu-mobile.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-mobile.active span:nth-child(2) {
+        opacity: 0 !important;
+    }
+
+    .menu-mobile.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+
+    /* ESCONDE BOTÃO INSCREVA-SE NO MOBILE */
+
+    .navbar > .btn-header {
+        display: none;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 769px) {
+
+    .menu-mobile {
+        display: none !important;
+    }
+
+    .menu {
+        display: flex !important;
+    }
+
+}
