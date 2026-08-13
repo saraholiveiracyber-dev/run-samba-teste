@@ -1,41 +1,60 @@
-document.addEventListener("DOMContentLoaded", () => {
+/* =========================================================
+   RUN & SAMBA
+   SCRIPT.JS
+   Menu mobile global
+========================================================= */
 
-    // =========================================================
-    // MENU MOBILE - TODAS AS PÁGINAS
-    // =========================================================
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* =====================================================
+       ELEMENTOS DO MENU
+    ===================================================== */
 
     const menuButton = document.querySelector(".menu-mobile");
     const menu = document.querySelector(".menu");
 
+    /* Se a página não tiver menu, não faz nada */
     if (!menuButton || !menu) {
         console.warn("Menu mobile não encontrado nesta página.");
         return;
     }
 
-    // Abrir / fechar
-    menuButton.addEventListener("click", () => {
 
-        const isOpen = menu.classList.toggle("active");
+    /* =====================================================
+       ABRIR / FECHAR MENU
+    ===================================================== */
 
-        menuButton.classList.toggle("active", isOpen);
+    menuButton.addEventListener("click", function (event) {
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        const aberto = menu.classList.toggle("active");
+
+        menuButton.classList.toggle("active", aberto);
 
         menuButton.setAttribute(
             "aria-expanded",
-            String(isOpen)
+            aberto ? "true" : "false"
         );
 
         menuButton.setAttribute(
             "aria-label",
-            isOpen ? "Fechar menu" : "Abrir menu"
+            aberto ? "Fechar menu" : "Abrir menu"
         );
 
     });
 
 
-    // Fechar ao clicar em qualquer link
-    menu.querySelectorAll("a").forEach(link => {
+    /* =====================================================
+       FECHAR AO CLICAR EM UM LINK
+    ===================================================== */
 
-        link.addEventListener("click", () => {
+    const links = menu.querySelectorAll("a");
+
+    links.forEach(function (link) {
+
+        link.addEventListener("click", function () {
 
             menu.classList.remove("active");
             menuButton.classList.remove("active");
@@ -55,19 +74,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    // Fechar ao clicar fora do menu
-    document.addEventListener("click", event => {
+    /* =====================================================
+       FECHAR AO CLICAR FORA DO MENU
+    ===================================================== */
 
-        const clicouNoMenu =
-            menu.contains(event.target);
-
-        const clicouNoBotao =
-            menuButton.contains(event.target);
+    document.addEventListener("click", function (event) {
 
         if (
-            !clicouNoMenu &&
-            !clicouNoBotao &&
-            menu.classList.contains("active")
+            menu.classList.contains("active") &&
+            !menu.contains(event.target) &&
+            !menuButton.contains(event.target)
         ) {
 
             menu.classList.remove("active");
@@ -88,10 +104,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    // Fechar menu se aumentar a tela
-    window.addEventListener("resize", () => {
+    /* =====================================================
+       ESC FECHA O MENU
+    ===================================================== */
 
-        if (window.innerWidth > 800) {
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape") {
 
             menu.classList.remove("active");
             menuButton.classList.remove("active");
