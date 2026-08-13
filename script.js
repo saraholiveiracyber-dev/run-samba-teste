@@ -1,141 +1,170 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const navbar = document.querySelector(".navbar");
+    /* ==================================================
+       MENU MOBILE
+    ================================================== */
+
+    const menuButton = document.querySelector(".menu-mobile");
     const menu = document.querySelector(".menu");
 
-    if (!navbar || !menu) {
-        return;
-    }
+    if (menuButton && menu) {
 
-    // ==================================================
-    // CRIAR BOTÃO MOBILE SE NÃO EXISTIR
-    // ==================================================
+        menuButton.addEventListener("click", function () {
 
-    let menuMobile = navbar.querySelector(".menu-mobile");
+            menu.classList.toggle("active");
 
-    if (!menuMobile) {
+            const aberto = menu.classList.contains("active");
 
-        menuMobile = document.createElement("button");
-
-        menuMobile.className = "menu-mobile";
-
-        menuMobile.type = "button";
-
-        menuMobile.setAttribute(
-            "aria-label",
-            "Abrir menu"
-        );
-
-        menuMobile.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        menuMobile.innerHTML = `
-            <span></span>
-            <span></span>
-            <span></span>
-        `;
-
-        // Coloca o botão antes do menu
-        navbar.insertBefore(menuMobile, menu);
-    }
-
-
-    // ==================================================
-    // ABRIR / FECHAR MENU
-    // ==================================================
-
-    menuMobile.addEventListener("click", function (event) {
-
-        event.preventDefault();
-        event.stopPropagation();
-
-        const aberto =
-            navbar.classList.toggle("menu-aberto");
-
-        menuMobile.setAttribute(
-            "aria-expanded",
-            aberto ? "true" : "false"
-        );
-
-        menuMobile.setAttribute(
-            "aria-label",
-            aberto
-                ? "Fechar menu"
-                : "Abrir menu"
-        );
-
-    });
-
-
-    // ==================================================
-    // FECHAR AO CLICAR EM UM LINK
-    // ==================================================
-
-    menu.querySelectorAll("a").forEach(function (link) {
-
-        link.addEventListener("click", function () {
-
-            navbar.classList.remove("menu-aberto");
-
-            menuMobile.setAttribute(
+            menuButton.setAttribute(
                 "aria-expanded",
-                "false"
+                aberto ? "true" : "false"
             );
 
-            menuMobile.setAttribute(
+            menuButton.setAttribute(
                 "aria-label",
-                "Abrir menu"
+                aberto ? "Fechar menu" : "Abrir menu"
             );
 
         });
 
-    });
+
+        /* Fecha o menu ao clicar em um link */
+
+        const links = menu.querySelectorAll("a");
+
+        links.forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                menu.classList.remove("active");
+
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                menuButton.setAttribute(
+                    "aria-label",
+                    "Abrir menu"
+                );
+
+            });
+
+        });
+
+    }
 
 
-    // ==================================================
-    // FECHAR AO CLICAR FORA
-    // ==================================================
+    /* ==================================================
+       SLIDER DA GALERIA
+    ================================================== */
 
-    document.addEventListener("click", function (event) {
+    const storiesTrack = document.getElementById("storiesTrack");
 
-        if (!navbar.contains(event.target)) {
+    if (storiesTrack) {
 
-            navbar.classList.remove("menu-aberto");
+        let velocidade = 0.5;
+        let pausado = false;
 
-            menuMobile.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+        function moverGaleria() {
 
-            menuMobile.setAttribute(
-                "aria-label",
-                "Abrir menu"
-            );
+            if (!pausado) {
+
+                storiesTrack.scrollLeft += velocidade;
+
+                /*
+                 * Quando chegar perto do final,
+                 * volta para o início.
+                 */
+
+                if (
+                    storiesTrack.scrollLeft >=
+                    storiesTrack.scrollWidth -
+                    storiesTrack.clientWidth -
+                    5
+                ) {
+
+                    storiesTrack.scrollLeft = 0;
+
+                }
+
+            }
+
+            requestAnimationFrame(moverGaleria);
 
         }
 
+        storiesTrack.addEventListener(
+            "mouseenter",
+            function () {
+                pausado = true;
+            }
+        );
+
+        storiesTrack.addEventListener(
+            "mouseleave",
+            function () {
+                pausado = false;
+            }
+        );
+
+        moverGaleria();
+
+    }
+
+
+    /* ==================================================
+       LINKS EXTERNOS
+    ================================================== */
+
+    document.querySelectorAll(
+        'a[target="_blank"]'
+    ).forEach(function (link) {
+
+        link.setAttribute(
+            "rel",
+            "noopener noreferrer"
+        );
+
     });
 
 
-    // ==================================================
-    // REDIMENSIONAMENTO
-    // ==================================================
+    /* ==================================================
+       PÁGINA ATUAL
+    ================================================== */
 
-    window.addEventListener("resize", function () {
+    const paginaAtual =
+        window.location.pathname
+            .split("/")
+            .pop()
+            .toLowerCase();
 
-        if (window.innerWidth > 768) {
+    document.querySelectorAll(".menu a").forEach(
+        function (link) {
 
-            navbar.classList.remove("menu-aberto");
+            const href =
+                link.getAttribute("href");
 
-            menuMobile.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+            if (!href) return;
+
+            const paginaLink =
+                href.split("/")
+                    .pop()
+                    .toLowerCase();
+
+            if (
+                paginaAtual === paginaLink ||
+                (
+                    paginaAtual === "" &&
+                    paginaLink === "index.html"
+                )
+            ) {
+
+                link.classList.add("active");
+
+            }
 
         }
-
-    });
+    );
 
 });
