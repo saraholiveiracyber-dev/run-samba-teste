@@ -1,32 +1,15 @@
-/* =========================================================
-   RUN & SAMBA
-   SCRIPT.JS
-   Menu mobile global
-========================================================= */
-
 document.addEventListener("DOMContentLoaded", function () {
-
-    /* =====================================================
-       ELEMENTOS DO MENU
-    ===================================================== */
 
     const menuButton = document.querySelector(".menu-mobile");
     const menu = document.querySelector(".menu");
 
-    /* Se a página não tiver menu, não faz nada */
     if (!menuButton || !menu) {
-        console.warn("Menu mobile não encontrado nesta página.");
+        console.warn("Menu mobile não encontrado.");
         return;
     }
 
-
-    /* =====================================================
-       ABRIR / FECHAR MENU
-    ===================================================== */
-
     menuButton.addEventListener("click", function (event) {
 
-        event.preventDefault();
         event.stopPropagation();
 
         const aberto = menu.classList.toggle("active");
@@ -46,13 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    /* =====================================================
-       FECHAR AO CLICAR EM UM LINK
-    ===================================================== */
-
-    const links = menu.querySelectorAll("a");
-
-    links.forEach(function (link) {
+    menu.querySelectorAll("a").forEach(function (link) {
 
         link.addEventListener("click", function () {
 
@@ -74,10 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    /* =====================================================
-       FECHAR AO CLICAR FORA DO MENU
-    ===================================================== */
-
     document.addEventListener("click", function (event) {
 
         if (
@@ -85,32 +58,6 @@ document.addEventListener("DOMContentLoaded", function () {
             !menu.contains(event.target) &&
             !menuButton.contains(event.target)
         ) {
-
-            menu.classList.remove("active");
-            menuButton.classList.remove("active");
-
-            menuButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            menuButton.setAttribute(
-                "aria-label",
-                "Abrir menu"
-            );
-
-        }
-
-    });
-
-
-    /* =====================================================
-       ESC FECHA O MENU
-    ===================================================== */
-
-    document.addEventListener("keydown", function (event) {
-
-        if (event.key === "Escape") {
 
             menu.classList.remove("active");
             menuButton.classList.remove("active");
