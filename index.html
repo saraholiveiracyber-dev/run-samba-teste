@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -54,20 +54,28 @@
                 >
             </a>
 
+<button
+    class="menu-mobile"
+    id="menuMobile"
+    type="button"
+    aria-label="Abrir menu"
+    aria-expanded="false"
+    aria-controls="mobileMenu"
+>
+    <span class="menu-mobile-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </span>
+
+    <span class="menu-mobile-text">
+        MENU
+    </span>
+</button>
+
+
             <!-- MENU MOBILE -->
-
-            <button
-                class="menu-mobile"
-                type="button"
-                aria-label="Abrir menu"
-                aria-expanded="false"
-            >
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <!-- MENU -->
+<!-- MENU -->
 
             <ul class="menu">
 
@@ -118,7 +126,106 @@
 
         </nav>
 
-    </header>
+    
+
+<div
+    class="mobile-menu-overlay"
+    id="mobileMenuOverlay"
+    aria-hidden="true"
+></div>
+
+<aside
+    class="mobile-menu-panel"
+    id="mobileMenu"
+    aria-hidden="true"
+>
+
+    <div class="mobile-menu-header">
+
+        <a
+            href="index.html"
+            class="mobile-menu-logo"
+            aria-label="Run & Samba - Início"
+        >
+
+            <img
+                src="img/LOGO.png"
+                alt="Run & Samba"
+            >
+
+        </a>
+
+        <button
+            type="button"
+            class="mobile-menu-close"
+            id="mobileMenuClose"
+            aria-label="Fechar menu"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <div class="mobile-menu-label">
+        NAVEGAÇÃO
+    </div>
+
+
+    <nav class="mobile-menu-nav" aria-label="Menu principal">
+
+        <a href="index.html">
+            <span>01</span>
+            <strong>INÍCIO</strong>
+        </a>
+
+        <a href="sobre.html">
+            <span>02</span>
+            <strong>SOBRE</strong>
+        </a>
+
+        <a href="inscricoes.html">
+            <span>03</span>
+            <strong>INSCRIÇÕES</strong>
+        </a>
+
+        <a href="galeria.html">
+            <span>04</span>
+            <strong>FOTOS</strong>
+        </a>
+
+        <a href="parceiros.html">
+            <span>05</span>
+            <strong>PARCEIROS</strong>
+        </a>
+
+        <a href="contato.html">
+            <span>06</span>
+            <strong>CONTATO</strong>
+        </a>
+
+    </nav>
+
+
+    <div class="mobile-menu-footer">
+
+        <a
+            href="inscricoes.html"
+            class="mobile-menu-cta"
+        >
+            INSCREVA-SE
+            <span>→</span>
+        </a>
+
+        <p>
+            RUN & SAMBA 2026
+        </p>
+
+    </div>
+
+</aside>
+
+</header>
 
 
     <!-- =====================================================
@@ -789,6 +896,9 @@
         src="js/main.js"
         defer
     ></script>
+
+
+<script src="js/script.js"></script>
 
 </body>
 
