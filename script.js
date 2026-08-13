@@ -1,53 +1,35 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
     const menuButton = document.querySelector(".menu-mobile");
     const menu = document.querySelector(".menu");
 
+    console.log("SCRIPT CARREGADO");
+    console.log("Botão:", menuButton);
+    console.log("Menu:", menu);
+
     if (!menuButton || !menu) {
-        console.error("Menu mobile não encontrado.");
+        console.error("MENU NÃO ENCONTRADO");
         return;
     }
 
-    menuButton.addEventListener("click", () => {
+    menuButton.addEventListener("click", function () {
+
+        console.log("BOTÃO CLICADO");
 
         menu.classList.toggle("active");
+        menuButton.classList.toggle("active");
 
-        const isOpen = menu.classList.contains("active");
+        const aberto = menu.classList.contains("active");
 
         menuButton.setAttribute(
             "aria-expanded",
-            isOpen ? "true" : "false"
+            aberto ? "true" : "false"
         );
 
         menuButton.setAttribute(
             "aria-label",
-            isOpen ? "Fechar menu" : "Abrir menu"
+            aberto ? "Fechar menu" : "Abrir menu"
         );
-
-        menuButton.classList.toggle("active", isOpen);
-
-    });
-
-
-    // Fecha o menu quando clicar em um link
-    menu.querySelectorAll("a").forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            menu.classList.remove("active");
-            menuButton.classList.remove("active");
-
-            menuButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            menuButton.setAttribute(
-                "aria-label",
-                "Abrir menu"
-            );
-
-        });
 
     });
 
