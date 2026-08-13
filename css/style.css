@@ -7781,3 +7781,185 @@ select {
     }
 
 }
+
+
+/* ==================================================
+   BOTÃO MENU MOBILE
+================================================== */
+
+.menu-mobile {
+    display: none;
+    width: 44px;
+    height: 44px;
+    padding: 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+
+    z-index: 9999;
+}
+
+.menu-mobile span {
+    display: block;
+
+    width: 25px;
+    height: 3px;
+
+    background: #ffffff;
+
+    border-radius: 3px;
+
+    transition: all 0.3s ease;
+}
+
+
+/* ==================================================
+   CELULAR
+================================================== */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        position: relative;
+    }
+
+
+    /* TRÊS PONTINHOS / MENU */
+
+    .menu-mobile {
+        display: flex;
+
+        margin-left: auto;
+        margin-right: 10px;
+    }
+
+
+    /* MENU FECHADO */
+
+    .navbar .menu {
+
+        position: absolute;
+
+        top: calc(100% + 10px);
+        right: 0;
+
+        width: 230px;
+
+        display: flex;
+        flex-direction: column;
+
+        padding: 12px;
+
+        margin: 0;
+
+        background: #000000;
+
+        border: 1px solid rgba(255,255,255,0.15);
+
+        border-radius: 12px;
+
+        box-shadow:
+            0 15px 40px rgba(0,0,0,0.6);
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        pointer-events: none;
+
+        transform: translateY(-10px);
+
+        transition:
+            opacity 0.25s ease,
+            transform 0.25s ease,
+            visibility 0.25s ease;
+
+        z-index: 9998;
+    }
+
+
+    /* MENU ABERTO */
+
+    .navbar.menu-aberto .menu {
+
+        opacity: 1;
+
+        visibility: visible;
+
+        pointer-events: auto;
+
+        transform: translateY(0);
+    }
+
+
+    /* LINKS */
+
+    .navbar .menu li {
+
+        width: 100%;
+
+        margin: 0;
+    }
+
+
+    .navbar .menu li a {
+
+        display: block;
+
+        width: 100%;
+
+        padding: 14px 16px;
+
+        color: #ffffff;
+
+        text-decoration: none;
+
+    }
+
+
+    /* ==================================================
+       ANIMAÇÃO DO ÍCONE
+    ================================================== */
+
+    .navbar.menu-aberto
+    .menu-mobile
+    span:nth-child(1) {
+
+        transform:
+            translateY(8px)
+            rotate(45deg);
+    }
+
+
+    .navbar.menu-aberto
+    .menu-mobile
+    span:nth-child(2) {
+
+        opacity: 0;
+    }
+
+
+    .navbar.menu-aberto
+    .menu-mobile
+    span:nth-child(3) {
+
+        transform:
+            translateY(-8px)
+            rotate(-45deg);
+    }
+
+
+    /* ESCONDE BOTÃO INSCREVA-SE
+       NO MOBILE */
+
+    .navbar .btn-header {
+        display: none;
+    }
+
+}
