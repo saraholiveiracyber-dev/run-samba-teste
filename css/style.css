@@ -8549,3 +8549,9 @@ body.menu-mobile-aberto {
     }
 
 }
+
+/* CORREÇÃO FINAL MENU DESKTOP */
+@media (min-width: 901px) { .navbar > .menu { display: flex !important; visibility: visible !important; opacity: 1 !important; position: static !important; transform: none !important; pointer-events: auto !important; } .navbar > .menu li { display: list-item !important; } .navbar > .menu a { display: inline-block !important; } .menu-mobile { display: none !important; } }
+
+/* CORREÇÃO FINAL MENU DESKTOP */
+@media (min-width: 901px) { .navbar > .menu { display: flex !important; visibility: visible !important; opacity: 1 !important; position: static !important; transform: none !important; pointer-events: auto !important; } .navbar > .menu li { display: list-item !important; } .navbar > .menu a { display: inline-block !important; } .menu-mobile { display: none !important; } }
