@@ -1,35 +1,112 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
+
+    // =========================================================
+    // MENU MOBILE - TODAS AS PÁGINAS
+    // =========================================================
 
     const menuButton = document.querySelector(".menu-mobile");
     const menu = document.querySelector(".menu");
 
-    console.log("SCRIPT CARREGADO");
-    console.log("Botão:", menuButton);
-    console.log("Menu:", menu);
-
     if (!menuButton || !menu) {
-        console.error("MENU NÃO ENCONTRADO");
+        console.warn("Menu mobile não encontrado nesta página.");
         return;
     }
 
-    menuButton.addEventListener("click", function () {
+    // Abrir / fechar
+    menuButton.addEventListener("click", () => {
 
-        console.log("BOTÃO CLICADO");
+        const isOpen = menu.classList.toggle("active");
 
-        menu.classList.toggle("active");
-        menuButton.classList.toggle("active");
-
-        const aberto = menu.classList.contains("active");
+        menuButton.classList.toggle("active", isOpen);
 
         menuButton.setAttribute(
             "aria-expanded",
-            aberto ? "true" : "false"
+            String(isOpen)
         );
 
         menuButton.setAttribute(
             "aria-label",
-            aberto ? "Fechar menu" : "Abrir menu"
+            isOpen ? "Fechar menu" : "Abrir menu"
         );
+
+    });
+
+
+    // Fechar ao clicar em qualquer link
+    menu.querySelectorAll("a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            menu.classList.remove("active");
+            menuButton.classList.remove("active");
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuButton.setAttribute(
+                "aria-label",
+                "Abrir menu"
+            );
+
+        });
+
+    });
+
+
+    // Fechar ao clicar fora do menu
+    document.addEventListener("click", event => {
+
+        const clicouNoMenu =
+            menu.contains(event.target);
+
+        const clicouNoBotao =
+            menuButton.contains(event.target);
+
+        if (
+            !clicouNoMenu &&
+            !clicouNoBotao &&
+            menu.classList.contains("active")
+        ) {
+
+            menu.classList.remove("active");
+            menuButton.classList.remove("active");
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuButton.setAttribute(
+                "aria-label",
+                "Abrir menu"
+            );
+
+        }
+
+    });
+
+
+    // Fechar menu se aumentar a tela
+    window.addEventListener("resize", () => {
+
+        if (window.innerWidth > 800) {
+
+            menu.classList.remove("active");
+            menuButton.classList.remove("active");
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuButton.setAttribute(
+                "aria-label",
+                "Abrir menu"
+            );
+
+        }
 
     });
 
