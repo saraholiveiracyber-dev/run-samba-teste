@@ -1,54 +1,165 @@
-document.addEventListener("DOMContentLoaded", () => {
+﻿document.addEventListener("DOMContentLoaded", function () {
 
-    const menuButton = document.querySelector(".menu-mobile");
+    console.log("Run & Samba - Script carregado");
+
+    /* ==================================================
+       MENU MOBILE
+    ================================================== */
+
     const menu = document.querySelector(".menu");
+    const botao = document.querySelector(".menu-mobile");
 
-    if (!menuButton || !menu) {
-        console.error("Menu mobile não encontrado.");
-        return;
-    }
+    if (menu && botao) {
 
-    menuButton.addEventListener("click", () => {
+        botao.addEventListener("click", function (event) {
 
-        menu.classList.toggle("active");
+            event.preventDefault();
+            event.stopPropagation();
 
-        const isOpen = menu.classList.contains("active");
+            menu.classList.toggle("menu-aberto");
 
-        menuButton.setAttribute(
-            "aria-expanded",
-            isOpen ? "true" : "false"
-        );
+            const aberto = menu.classList.contains("menu-aberto");
 
-        menuButton.setAttribute(
-            "aria-label",
-            isOpen ? "Fechar menu" : "Abrir menu"
-        );
+            botao.innerHTML = aberto ? "✕ FECHAR" : "☰ MENU";
 
-        menuButton.classList.toggle("active", isOpen);
-
-    });
-
-
-    // Fecha o menu quando clicar em um link
-    menu.querySelectorAll("a").forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            menu.classList.remove("active");
-            menuButton.classList.remove("active");
-
-            menuButton.setAttribute(
+            botao.setAttribute(
                 "aria-expanded",
-                "false"
-            );
-
-            menuButton.setAttribute(
-                "aria-label",
-                "Abrir menu"
+                aberto ? "true" : "false"
             );
 
         });
 
-    });
+        /* Fecha ao clicar em um link */
+
+        const links = menu.querySelectorAll("a");
+
+        links.forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                menu.classList.remove("menu-aberto");
+
+                botao.innerHTML = "☰ MENU";
+
+                botao.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            });
+
+        });
+
+        /* Fecha clicando fora */
+
+        document.addEventListener("click", function (event) {
+
+            if (
+                menu.classList.contains("menu-aberto") &&
+                !menu.contains(event.target) &&
+                !botao.contains(event.target)
+            ) {
+
+                menu.classList.remove("menu-aberto");
+
+                botao.innerHTML = "☰ MENU";
+
+                botao.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        });
+
+    }
+
+
+    /* ==================================================
+       GALERIA
+    ================================================== */
+
+    const galeria = document.querySelector(".stories-track");
+
+    if (galeria) {
+
+        let velocidade = 0.5;
+        let pausado = false;
+
+        function animarGaleria() {
+
+            if (!pausado) {
+
+                galeria.scrollLeft += velocidade;
+
+                if (
+                    galeria.scrollLeft >=
+                    galeria.scrollWidth -
+                    galeria.clientWidth -
+                    2
+                ) {
+                    galeria.scrollLeft = 0;
+                }
+
+            }
+
+            requestAnimationFrame(animarGaleria);
+
+        }
+
+        galeria.addEventListener(
+            "mouseenter",
+            function () {
+                pausado = true;
+            }
+        );
+
+        galeria.addEventListener(
+            "mouseleave",
+            function () {
+                pausado = false;
+            }
+        );
+
+        animarGaleria();
+
+    }
+
+
+    /* ==================================================
+       PÁGINA ATUAL
+    ================================================== */
+
+    const paginaAtual =
+        window.location.pathname
+            .split("/")
+            .pop()
+            .toLowerCase();
+
+    document.querySelectorAll(".menu a").forEach(
+        function (link) {
+
+            const href = link.getAttribute("href");
+
+            if (!href) return;
+
+            const paginaLink =
+                href.split("/")
+                    .pop()
+                    .toLowerCase();
+
+            if (
+                paginaAtual === paginaLink ||
+                (
+                    paginaAtual === "" &&
+                    paginaLink === "index.html"
+                )
+            ) {
+                link.classList.add("active");
+            }
+
+        }
+    );
 
 });

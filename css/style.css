@@ -7320,6 +7320,7 @@ select {
     }
 
 }
+<<<<<<< HEAD
 
 /* ============================================================
    MENU MOBILE - GALERIA
@@ -7785,10 +7786,15 @@ select {
 
 /* ==================================================
    BOTÃO MENU MOBILE
+=======
+/* ==================================================
+   MENU MOBILE RUN & SAMBA
+>>>>>>> 9b841a1 (Corrige menu mobile e scripts das paginas)
 ================================================== */
 
 .menu-mobile {
     display: none;
+<<<<<<< HEAD
     width: 44px;
     height: 44px;
     padding: 8px;
@@ -7824,11 +7830,27 @@ select {
 ================================================== */
 
 @media (max-width: 768px) {
+=======
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.5);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+@media (max-width: 900px) {
+>>>>>>> 9b841a1 (Corrige menu mobile e scripts das paginas)
 
     .navbar {
         position: relative;
     }
 
+<<<<<<< HEAD
 
     /* TRÊS PONTINHOS / MENU */
 
@@ -7963,3 +7985,65 @@ select {
     }
 
 }
+=======
+    .menu-mobile {
+        display: block;
+        margin-left: auto;
+    }
+
+    .menu {
+        display: none !important;
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+
+        width: 100%;
+
+        background: #000;
+
+        padding: 20px 0;
+        margin: 0;
+
+        flex-direction: column;
+
+        z-index: 9998;
+
+        border-top: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .menu.menu-aberto {
+        display: flex !important;
+    }
+
+    .menu li {
+        width: 100%;
+        list-style: none;
+        text-align: center;
+    }
+
+    .menu li a {
+        display: block;
+        width: 100%;
+
+        padding: 16px 20px;
+
+        color: #fff;
+        text-decoration: none;
+
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+    }
+
+    .menu li a:hover {
+        background: rgba(255,255,255,0.08);
+    }
+
+    .btn-header {
+        display: none !important;
+    }
+
+}
+
+>>>>>>> 9b841a1 (Corrige menu mobile e scripts das paginas)
