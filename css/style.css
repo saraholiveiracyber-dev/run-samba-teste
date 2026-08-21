@@ -13639,3 +13639,385 @@ body.menu-open {
     }
 
 }
+
+/* =========================================================
+   CONTATO — RESPONSIVIDADE MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .contato-grid {
+        grid-template-columns: 1fr !important;
+        gap: 60px;
+    }
+
+    .contato-info,
+    .contato-form-wrapper {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .contato-hero {
+        min-height: auto;
+        padding: 150px 0 90px;
+    }
+
+    .contato-hero-content {
+        max-width: 100%;
+    }
+
+    .contato-hero h1 {
+        font-size: clamp(42px, 11vw, 72px);
+        line-height: .95;
+    }
+
+    .contato-hero p {
+        max-width: 550px;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+
+    /* SEÇÃO CONTATO */
+
+    .contato-section {
+        padding: 70px 0;
+    }
+
+    .contato-grid {
+        gap: 50px;
+    }
+
+    .contato-info h2,
+    .contato-parceria h2,
+    .contato-cta h2 {
+        font-size: clamp(30px, 8vw, 52px);
+        line-height: 1.05;
+    }
+
+
+    /* ITENS DE CONTATO */
+
+    .contato-item {
+        padding: 20px 0;
+    }
+
+    .contato-icon {
+        width: 52px;
+        height: 52px;
+        min-width: 52px;
+        font-size: 15px;
+    }
+
+
+    /* FORMULÁRIO */
+
+    .contato-form-wrapper {
+        padding: 35px 28px;
+    }
+
+    .form-header h3 {
+        font-size: 28px;
+    }
+
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        font-size: 16px;
+    }
+
+
+    /* PARCERIA */
+
+    .contato-parceria {
+        padding: 70px 0;
+    }
+
+    .contato-parceria-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 35px;
+    }
+
+
+    /* CTA */
+
+    .contato-cta {
+        padding: 80px 0;
+    }
+
+
+    /* FOOTER */
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: min(100% - 32px, 1200px);
+    }
+
+
+    /* HERO */
+
+    .contato-hero {
+        padding: 130px 0 70px;
+    }
+
+    .contato-hero-content {
+        text-align: left;
+    }
+
+    .contato-hero h1 {
+        font-size: clamp(40px, 13vw, 60px);
+        letter-spacing: -.04em;
+    }
+
+    .contato-hero h1 span {
+        display: block;
+    }
+
+    .contato-hero p {
+        margin-top: 22px;
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+
+    /* SEÇÃO */
+
+    .contato-section {
+        padding: 60px 0;
+    }
+
+    .contato-grid {
+        gap: 45px;
+    }
+
+
+    /* TÍTULOS */
+
+    .section-label {
+        font-size: 10px;
+        letter-spacing: .12em;
+    }
+
+    .contato-info h2,
+    .contato-parceria h2,
+    .contato-cta h2 {
+        margin-top: 15px;
+        font-size: clamp(30px, 10vw, 46px);
+        line-height: 1.05;
+    }
+
+    .contato-info > p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+
+    /* ITENS */
+
+    .contato-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 22px 0;
+    }
+
+    .contato-icon {
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        font-size: 13px;
+    }
+
+    .contato-item span {
+        font-size: 10px;
+    }
+
+    .contato-item h3 {
+        font-size: 15px;
+        line-height: 1.4;
+    }
+
+    .contato-item a,
+    .contato-item p {
+        font-size: 13px;
+        word-break: break-word;
+    }
+
+
+    /* FORMULÁRIO */
+
+    .contato-form-wrapper {
+        padding: 28px 20px;
+        border-radius: 16px;
+    }
+
+    .form-header {
+        margin-bottom: 28px;
+    }
+
+    .form-header h3 {
+        font-size: 25px;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    .form-group label {
+        font-size: 11px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        min-height: 52px;
+        padding: 0 15px;
+        font-size: 16px;
+        border-radius: 8px;
+    }
+
+    .form-group textarea {
+        min-height: 140px;
+        padding-top: 15px;
+        resize: vertical;
+    }
+
+
+    /* BOTÃO */
+
+    .btn-form {
+        width: 100%;
+        min-height: 58px;
+        font-size: 11px;
+        letter-spacing: .08em;
+    }
+
+
+    /* PARCERIA */
+
+    .contato-parceria {
+        padding: 60px 0;
+    }
+
+    .contato-parceria-content {
+        gap: 30px;
+    }
+
+    .contato-parceria p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .btn-parceria {
+        width: 100%;
+        min-height: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+
+    /* CTA */
+
+    .contato-cta {
+        padding: 70px 0;
+    }
+
+    .contato-cta h2 {
+        margin-bottom: 30px;
+    }
+
+    .btn-cta-contato {
+        width: 100%;
+        min-height: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    /* FOOTER */
+
+    .footer {
+        padding: 30px 0;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        align-items: center;
+    }
+
+    .footer-copy,
+    .footer-credit {
+        font-size: 9px;
+        line-height: 1.7;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .container {
+        width: min(100% - 24px, 1200px);
+    }
+
+    .contato-hero {
+        padding-top: 115px;
+    }
+
+    .contato-hero h1 {
+        font-size: 38px;
+    }
+
+    .contato-info h2,
+    .contato-parceria h2,
+    .contato-cta h2 {
+        font-size: 29px;
+    }
+
+    .contato-form-wrapper {
+        padding: 24px 16px;
+    }
+
+    .contato-item {
+        gap: 12px;
+    }
+
+    .contato-icon {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+    }
+
+}
