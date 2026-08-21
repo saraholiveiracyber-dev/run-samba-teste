@@ -1,7 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
+
+    <!-- =====================================================
+         CONFIGURAÇÕES
+    ====================================================== -->
 
     <meta charset="UTF-8">
 
@@ -12,13 +17,22 @@
 
     <meta
         name="description"
-        content="Mensagem enviada com sucesso para a Run & Samba."
+        content="Mensagem enviada com sucesso — Run & Samba 2026."
     >
 
-    <title>Mensagem enviada | Run & Samba</title>
+    <meta
+        name="theme-color"
+        content="#070707"
+    >
+
+    <title>
+        Obrigado pelo contato | Run & Samba 2026
+    </title>
 
 
-    <!-- FONTES -->
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
 
     <link
         rel="preconnect"
@@ -32,325 +46,322 @@
     >
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet"
     >
 
 
-    <!-- CSS -->
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
 
     <link
         rel="stylesheet"
-        href="css/style.css"
+        href="css/obrigado.css"
     >
 
 </head>
 
 
-<body class="pagina-obrigado">
+<body>
 
 
-<!-- ==================================================
-     HEADER
-================================================== -->
+<!-- =========================================================
+     PÁGINA DE AGRADECIMENTO
+========================================================= -->
 
-<header class="header">
-
-    <nav class="navbar">
+<main class="obrigado-page">
 
 
-        <a
-            href="index.html"
-            class="logo-link"
-        >
+    <!-- =====================================================
+         CARD PRINCIPAL
+    ====================================================== -->
 
-            <img
-                src="img/LOGO.png"
-                class="logo"
-                alt="Run & Samba"
+    <section
+        class="obrigado-card"
+        aria-labelledby="obrigado-title"
+    >
+
+
+        <!-- =================================================
+             LOGO
+        ================================================== -->
+
+        <div class="obrigado-logo-area">
+
+            <a
+                href="index.html"
+                class="obrigado-logo-link"
+                aria-label="Voltar para a página inicial"
             >
 
-        </a>
+                <img
+                    src="img/LOGO.png"
+                    alt="Run & Samba"
+                    class="obrigado-logo"
+                >
+
+            </a>
+
+        </div>
 
 
-        <ul class="menu">
 
-            <li>
-                <a href="index.html">
-                    INÍCIO
-                </a>
-            </li>
+        <!-- =================================================
+             ÍCONE DE SUCESSO
+        ================================================== -->
 
-            <li>
-                <a href="sobre.html">
-                    SOBRE
-                </a>
-            </li>
-
-            <li>
-                <a href="percurso.html">
-                    PERCURSOS
-                </a>
-            </li>
-
-            <li>
-                <a href="inscricoes.html">
-                    INSCRIÇÕES
-                </a>
-            </li>
-
-            <li>
-                <a href="galeria.html">
-                    FOTOS
-                </a>
-            </li>
-
-            <li>
-                <a href="parceiros.html">
-                    PARCEIROS
-                </a>
-            </li>
-
-            <li>
-                <a href="contato.html">
-                    CONTATO
-                </a>
-            </li>
-
-        </ul>
-
-
-        <a
-            href="inscricoes.html"
-            class="btn-header"
+        <div
+            class="sucesso-icon"
+            aria-hidden="true"
         >
-            INSCREVA-SE
-        </a>
-
-
-    </nav>
-
-</header>
-
-
-
-<!-- ==================================================
-     MENSAGEM
-================================================== -->
-
-<main class="obrigado-main">
-
-
-    <div class="obrigado-content">
-
-
-        <!-- ÍCONE -->
-
-        <div class="obrigado-icon">
 
             ✓
 
         </div>
 
 
-        <!-- LABEL -->
 
-        <span class="section-label">
+        <!-- =================================================
+             LABEL
+        ================================================== -->
 
-            RUN & SAMBA
+        <span class="obrigado-label">
+
+            MENSAGEM ENVIADA
 
         </span>
 
 
-        <!-- TÍTULO -->
 
-        <h1>
+        <!-- =================================================
+             TÍTULO
+        ================================================== -->
 
-            MENSAGEM
-            <span>ENVIADA!</span>
+        <h1 id="obrigado-title">
+
+            Obrigado pelo
+
+            <strong>
+                contato!
+            </strong>
 
         </h1>
 
 
-        <!-- TEXTO -->
 
-        <p>
+        <!-- =================================================
+             LINHA DECORATIVA
+        ================================================== -->
 
-            Recebemos sua mensagem com sucesso.
+        <div
+            class="linha-amarela"
+            aria-hidden="true"
+        ></div>
 
-            Nossa equipe irá analisar sua solicitação
-            e entrar em contato com você em breve.
+
+
+        <!-- =================================================
+             MENSAGEM PRINCIPAL
+        ================================================== -->
+
+        <p class="obrigado-principal">
+
+            Recebemos sua mensagem
+
+            <strong>
+                com sucesso.
+            </strong>
 
         </p>
 
 
-        <p class="obrigado-destaque">
 
-            Obrigado por fazer parte da
-            Run & Samba.
+        <!-- =================================================
+             TEXTO
+        ================================================== -->
+
+        <p class="obrigado-texto">
+
+            Nossa equipe recebeu suas informações e retornará
+            o mais breve possível.
+
+            <strong>
+                Obrigado por fazer parte dessa experiência.
+            </strong>
 
         </p>
 
 
-        <!-- BOTÕES -->
 
-        <div class="obrigado-botoes">
+        <!-- =================================================
+             DESTAQUE
+        ================================================== -->
 
-
-            <a
-                href="index.html"
-                class="btn-obrigado"
-            >
-
-                VOLTAR AO INÍCIO
-
-            </a>
+        <div class="obrigado-destaque">
 
 
-            <a
-                href="inscricoes.html"
-                class="btn-obrigado-outline"
-            >
+            <div class="destaque-titulo">
 
-                QUERO ME INSCREVER
+                <span aria-hidden="true">
 
-            </a>
+                    ✓
+
+                </span>
+
+
+                <strong>
+
+                    SUA MENSAGEM ESTÁ COM A GENTE
+
+                </strong>
+
+            </div>
+
+
+            <p>
+
+                Em breve entraremos em contato através das
+                informações que você enviou.
+
+            </p>
 
 
         </div>
 
 
-    </div>
+
+        <!-- =================================================
+             BOTÃO
+        ================================================== -->
+
+        <div class="obrigado-actions">
+
+            <a
+                href="index.html"
+                class="btn-voltar"
+            >
+
+                <span>
+
+                    VOLTAR PARA O INÍCIO
+
+                </span>
+
+
+                <strong
+                    aria-hidden="true"
+                >
+
+                    →
+
+                </strong>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- =================================================
+             INFORMAÇÕES DO EVENTO
+        ================================================== -->
+
+        <div class="obrigado-evento">
+
+
+            <span class="obrigado-evento-label">
+
+                RUN & SAMBA 2026
+
+            </span>
+
+
+            <strong>
+
+                20 DE NOVEMBRO
+
+            </strong>
+
+
+            <small>
+
+                LUZIÂNIA — GO
+
+            </small>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer class="obrigado-footer">
+
+
+            <p>
+
+                © 2026 RUN & SAMBA
+
+                <span>
+                    •
+                </span>
+
+                TODOS OS DIREITOS RESERVADOS
+
+            </p>
+
+
+            <p>
+
+                DESENVOLVIDO POR
+
+                <strong>
+
+                    iDIGITAL AGÊNCIA
+
+                </strong>
+
+            </p>
+
+
+        </footer>
+
+
+    </section>
 
 
 </main>
 
 
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
 
-<!-- ==================================================
-     FOOTER
-================================================== -->
+<script>
 
-<!-- ==================================================
-     FOOTER
-================================================== -->
+    document.addEventListener(
+        "DOMContentLoaded",
+        () => {
 
-<footer class="footer">
+            console.log(
+                "%cRUN & SAMBA 2026",
+                "color: #ffd500; font-size: 16px; font-weight: 900;"
+            );
 
-    <div class="container">
+            console.log(
+                "%cPágina de agradecimento carregada com sucesso.",
+                "color: #ffffff; font-size: 12px;"
+            );
 
-        <div class="footer-grid">
+        }
+    );
 
-            <!-- MARCA -->
+</script>
 
-            <div class="footer-brand">
-
-                <img
-                    src="img/LOGO.png"
-                    alt="Run & Samba"
-                >
-
-                <p>
-                    Esporte, música e propósito
-                    em um só lugar.
-                </p>
-
-            </div>
-
-
-            <!-- NAVEGAÇÃO -->
-
-            <div class="footer-column">
-
-                <h4>
-                    NAVEGAÇÃO
-                </h4>
-
-                <a href="index.html">
-                    Início
-                </a>
-
-                <a href="sobre.html">
-                    Sobre
-                </a>
-
-                <a href="inscricoes.html">
-                    Inscrições
-                </a>
-
-                <a href="galeria.html">
-                    Fotos
-                </a>
-
-            </div>
-
-
-            <!-- EVENTO -->
-
-            <div class="footer-column">
-
-                <h4>
-                    EVENTO
-                </h4>
-
-                <a href="parceiros.html">
-                    Parceiros
-                </a>
-
-                <a href="contato.html">
-                    Contato
-                </a>
-
-            </div>
-
-
-            <!-- CONTATO -->
-
-            <div class="footer-column">
-
-                <h4>
-                    CONTATO
-                </h4>
-
-                <p>
-                    runesamba.oficial@gmail.com
-                </p>
-
-                <p>
-                    (62) 99210-4211
-                </p>
-
-                <p>
-                    Luziânia - GO
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <!-- LINHA FINAL -->
-
-        <div class="footer-bottom">
-
-            <p>
-                © 2026 Run & Samba. Todos os direitos reservados.
-            </p>
-
-            <p>
-                Desenvolvido por
-                <strong>iDigital Agência</strong>
-            </p>
-
-        </div>
-
-    </div>
-
-</footer>
-
-
-
-<script src="js/script.js"></script>
 
 </body>
 

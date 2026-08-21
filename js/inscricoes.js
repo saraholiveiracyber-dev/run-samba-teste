@@ -3,11 +3,24 @@
    SISTEMA DE INSCRIÇÕES
    ========================================================= */
 
+
+/* =========================================================
+   CONFIGURAÇÃO SUPABASE
+   ========================================================= */
+
 const SUPABASE_URL =
     "https://tqezxxobxsipjjuyydvc.supabase.co";
 
 const SUPABASE_ANON_KEY =
     "sb_publishable_Yt-DyfGqRqfbPN6aPgLM5w_K2RIneDd";
+
+
+/* =========================================================
+   CONFIGURAÇÃO IZY
+   ========================================================= */
+
+const IZY_PAYMENT_URL =
+    "https://eventos.izypass.com.br/share/run-and-samba-2-edicao_luziania_20-11-2026";
 
 
 /* =========================================================
@@ -26,7 +39,7 @@ const db = createClient(
    INICIALIZAÇÃO
    ========================================================= */
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
     console.log(
         "Run & Samba — sistema de inscrições carregado."
@@ -35,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        ELEMENTOS
-       ===================================================== */
+    ===================================================== */
 
     const form =
         document.getElementById("form-inscricao");
@@ -68,7 +81,9 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("btnContinuar");
 
 
-    /* RESUMO */
+    /* =====================================================
+       RESUMO
+    ===================================================== */
 
     const resumoNome =
         document.getElementById("resumo-nome");
@@ -83,10 +98,14 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("resumo-valor");
 
 
+    /* =====================================================
+       VERIFICAR FORMULÁRIO
+    ===================================================== */
+
     if (!form) {
 
         console.error(
-            "Formulário de inscrição não encontrado."
+            "Formulário #form-inscricao não encontrado."
         );
 
         return;
@@ -94,8 +113,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       MENSAGEM
-       ===================================================== */
+       MENSAGENS
+    ===================================================== */
 
     function mostrarMensagem(
         texto,
@@ -109,14 +128,12 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        mensagem.textContent =
-            texto;
+        mensagem.textContent = texto;
 
         mensagem.className =
-            "mensagem-formulario " + tipo;
+            `mensagem-formulario ${tipo}`;
 
-        mensagem.style.display =
-            "block";
+        mensagem.style.display = "block";
     }
 
 
@@ -126,20 +143,18 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        mensagem.textContent =
-            "";
+        mensagem.textContent = "";
 
         mensagem.className =
             "mensagem-formulario";
 
-        mensagem.style.display =
-            "none";
+        mensagem.style.display = "none";
     }
 
 
     /* =====================================================
        SOMENTE NÚMEROS
-       ===================================================== */
+    ===================================================== */
 
     function somenteNumeros(valor) {
 
@@ -150,145 +165,124 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        CPF — MÁSCARA
-       ===================================================== */
+    ===================================================== */
 
-    cpf?.addEventListener(
-        "input",
-        function () {
+    cpf?.addEventListener("input", () => {
 
-            let valor =
-                somenteNumeros(
-                    cpf.value
-                ).substring(0, 11);
+        let valor =
+            somenteNumeros(cpf.value)
+                .substring(0, 11);
 
 
-            if (valor.length > 9) {
+        if (valor.length > 9) {
 
-                valor =
-                    valor.replace(
-                        /^(\d{3})(\d{3})(\d{3})(\d{1,2})$/,
-                        "$1.$2.$3-$4"
-                    );
+            valor =
+                valor.replace(
+                    /^(\d{3})(\d{3})(\d{3})(\d{1,2})$/,
+                    "$1.$2.$3-$4"
+                );
 
-            } else if (valor.length > 6) {
+        } else if (valor.length > 6) {
 
-                valor =
-                    valor.replace(
-                        /^(\d{3})(\d{3})(\d{1,3})$/,
-                        "$1.$2.$3"
-                    );
+            valor =
+                valor.replace(
+                    /^(\d{3})(\d{3})(\d{1,3})$/,
+                    "$1.$2.$3"
+                );
 
-            } else if (valor.length > 3) {
+        } else if (valor.length > 3) {
 
-                valor =
-                    valor.replace(
-                        /^(\d{3})(\d{1,3})$/,
-                        "$1.$2"
-                    );
-            }
-
-
-            cpf.value =
-                valor;
-
-
-            /*
-             * Quando o usuário alterar o CPF,
-             * limpamos a mensagem anterior.
-             */
-
-            limparMensagem();
+            valor =
+                valor.replace(
+                    /^(\d{3})(\d{1,3})$/,
+                    "$1.$2"
+                );
         }
-    );
+
+
+        cpf.value = valor;
+
+        limparMensagem();
+    });
 
 
     /* =====================================================
        DATA — MÁSCARA
-       ===================================================== */
+    ===================================================== */
 
-    nascimento?.addEventListener(
-        "input",
-        function () {
+    nascimento?.addEventListener("input", () => {
 
-            let valor =
-                somenteNumeros(
-                    nascimento.value
-                ).substring(0, 8);
+        let valor =
+            somenteNumeros(nascimento.value)
+                .substring(0, 8);
 
 
-            if (valor.length > 4) {
+        if (valor.length > 4) {
 
-                valor =
-                    valor.replace(
-                        /^(\d{2})(\d{2})(\d{1,4})$/,
-                        "$1/$2/$3"
-                    );
+            valor =
+                valor.replace(
+                    /^(\d{2})(\d{2})(\d{1,4})$/,
+                    "$1/$2/$3"
+                );
 
-            } else if (valor.length > 2) {
+        } else if (valor.length > 2) {
 
-                valor =
-                    valor.replace(
-                        /^(\d{2})(\d{1,2})$/,
-                        "$1/$2"
-                    );
-            }
-
-
-            nascimento.value =
-                valor;
+            valor =
+                valor.replace(
+                    /^(\d{2})(\d{1,2})$/,
+                    "$1/$2"
+                );
         }
-    );
+
+
+        nascimento.value = valor;
+    });
 
 
     /* =====================================================
        TELEFONE — MÁSCARA
-       ===================================================== */
+    ===================================================== */
 
-    telefone?.addEventListener(
-        "input",
-        function () {
+    telefone?.addEventListener("input", () => {
 
-            let valor =
-                somenteNumeros(
-                    telefone.value
-                ).substring(0, 11);
+        let valor =
+            somenteNumeros(telefone.value)
+                .substring(0, 11);
 
 
-            if (valor.length > 10) {
+        if (valor.length > 10) {
 
-                valor =
-                    valor.replace(
-                        /^(\d{2})(\d{5})(\d{1,4})$/,
-                        "($1) $2-$3"
-                    );
+            valor =
+                valor.replace(
+                    /^(\d{2})(\d{5})(\d{1,4})$/,
+                    "($1) $2-$3"
+                );
 
-            } else if (valor.length > 6) {
+        } else if (valor.length > 6) {
 
-                valor =
-                    valor.replace(
-                        /^(\d{2})(\d{4})(\d{1,4})$/,
-                        "($1) $2-$3"
-                    );
+            valor =
+                valor.replace(
+                    /^(\d{2})(\d{4})(\d{1,4})$/,
+                    "($1) $2-$3"
+                );
 
-            } else if (valor.length > 2) {
+        } else if (valor.length > 2) {
 
-                valor =
-                    valor.replace(
-                        /^(\d{2})(\d{1,5})$/,
-                        "($1) $2"
-                    );
-            }
-
-
-            telefone.value =
-                valor;
+            valor =
+                valor.replace(
+                    /^(\d{2})(\d{1,5})$/,
+                    "($1) $2"
+                );
         }
-    );
+
+
+        telefone.value = valor;
+    });
 
 
     /* =====================================================
        CPF — VALIDAÇÃO
-       ===================================================== */
+    ===================================================== */
 
     function cpfValido(valor) {
 
@@ -321,7 +315,7 @@ document.addEventListener("DOMContentLoaded", function () {
             soma % 11;
 
 
-        let digito1 =
+        const digito1 =
             resto < 2
                 ? 0
                 : 11 - resto;
@@ -351,7 +345,7 @@ document.addEventListener("DOMContentLoaded", function () {
             soma % 11;
 
 
-        let digito2 =
+        const digito2 =
             resto < 2
                 ? 0
                 : 11 - resto;
@@ -366,7 +360,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        DATA — VALIDAÇÃO
-       ===================================================== */
+    ===================================================== */
 
     function dataValida(data) {
 
@@ -418,8 +412,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       DATA — CONVERTER PARA SUPABASE
-       ===================================================== */
+       DATA — CONVERTER
+    ===================================================== */
 
     function converterData(data) {
 
@@ -432,9 +426,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        const dia = partes[0];
-        const mes = partes[1];
-        const ano = partes[2];
+        const dia =
+            partes[0];
+
+        const mes =
+            partes[1];
+
+        const ano =
+            partes[2];
 
 
         return `${ano}-${mes}-${dia}`;
@@ -443,7 +442,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        PERCURSO
-       ===================================================== */
+    ===================================================== */
 
     function obterPercurso() {
 
@@ -455,7 +454,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        CAMISETA
-       ===================================================== */
+    ===================================================== */
 
     function obterCamiseta() {
 
@@ -466,8 +465,61 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       RESUMO
-       ===================================================== */
+       VALOR DO PERCURSO
+    ===================================================== */
+
+    function obterValorPercurso(percurso) {
+
+        if (!percurso) {
+            return 0;
+        }
+
+
+        const valor =
+            percurso.dataset.valor;
+
+
+        if (!valor) {
+            return 0;
+        }
+
+
+        const numero =
+            Number(
+                String(valor)
+                    .replace("R$", "")
+                    .replace(/\s/g, "")
+                    .replace(/\./g, "")
+                    .replace(",", ".")
+            );
+
+
+        return Number.isFinite(numero)
+            ? numero
+            : 0;
+    }
+
+
+    /* =====================================================
+       FORMATAR VALOR
+    ===================================================== */
+
+    function formatarValor(valor) {
+
+        return Number(valor || 0)
+            .toLocaleString(
+                "pt-BR",
+                {
+                    style: "currency",
+                    currency: "BRL"
+                }
+            );
+    }
+
+
+    /* =====================================================
+       ATUALIZAR RESUMO
+    ===================================================== */
 
     function atualizarResumo() {
 
@@ -478,12 +530,16 @@ document.addEventListener("DOMContentLoaded", function () {
             obterCamiseta();
 
 
+        /* NOME */
+
         if (resumoNome) {
 
             resumoNome.textContent =
                 nome?.value.trim() || "—";
         }
 
+
+        /* PERCURSO */
 
         if (resumoPercurso) {
 
@@ -492,6 +548,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
+        /* CAMISETA */
+
         if (resumoCamiseta) {
 
             resumoCamiseta.textContent =
@@ -499,38 +557,33 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
+        /* VALOR */
+
         if (resumoValor) {
 
-            let valor =
-                percurso?.dataset.valor;
+            if (!percurso) {
+
+                resumoValor.textContent =
+                    "R$ —";
+
+            } else {
+
+                const valor =
+                    obterValorPercurso(
+                        percurso
+                    );
 
 
-            /*
-             * Seu HTML usa "89,90".
-             * O JavaScript precisa transformar
-             * para 89.90.
-             */
-
-            valor =
-                valor
-                    ? Number(
-                        String(valor)
-                            .replace(",", ".")
-                    )
-                    : 89.90;
-
-
-            resumoValor.textContent =
-                valor.toLocaleString(
-                    "pt-BR",
-                    {
-                        style: "currency",
-                        currency: "BRL"
-                    }
-                );
+                resumoValor.textContent =
+                    formatarValor(valor);
+            }
         }
     }
 
+
+    /* =====================================================
+       EVENTOS DO RESUMO
+    ===================================================== */
 
     nome?.addEventListener(
         "input",
@@ -542,7 +595,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .querySelectorAll(
             'input[name="percurso"]'
         )
-        .forEach(function (item) {
+        .forEach((item) => {
 
             item.addEventListener(
                 "change",
@@ -555,7 +608,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .querySelectorAll(
             'input[name="camiseta"]'
         )
-        .forEach(function (item) {
+        .forEach((item) => {
 
             item.addEventListener(
                 "change",
@@ -566,7 +619,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        MODAL DO TERMO
-       ===================================================== */
+    ===================================================== */
 
     const abrirTermo =
         document.getElementById("abrirTermo");
@@ -593,10 +646,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        modalTermo.classList.add(
-            "ativo"
-        );
-
+        modalTermo.classList.add("ativo");
 
         modalTermo.setAttribute(
             "aria-hidden",
@@ -644,7 +694,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     abrirTermo?.addEventListener(
         "click",
-        function (event) {
+        (event) => {
 
             event.preventDefault();
 
@@ -673,7 +723,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.addEventListener(
         "keydown",
-        function (event) {
+        (event) => {
 
             if (
                 event.key === "Escape" &&
@@ -689,10 +739,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       ⭐ VERIFICAR CPF NO SUPABASE
-       ===================================================== */
+       VERIFICAR CPF
+    ===================================================== */
 
-    async function verificarCPF(cpfInformado) {
+    async function verificarCPF(
+        cpfInformado
+    ) {
 
         const cpfLimpo =
             somenteNumeros(
@@ -714,12 +766,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 .limit(1);
 
 
-        console.log(
-            "Resposta CPF:",
-            resposta
-        );
-
-
         if (resposta.error) {
 
             console.error(
@@ -731,7 +777,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        return (
+        return Boolean(
             resposta.data &&
             resposta.data.length > 0
         );
@@ -739,15 +785,91 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       ⭐ SUBMIT
-       ===================================================== */
+       SALVAR DADOS DA INSCRIÇÃO
+    ===================================================== */
+
+    function salvarDadosInscricao(
+        valor,
+        percursoSelecionado,
+        nomeParticipante
+    ) {
+
+        const valorFormatado =
+            formatarValor(valor);
+
+
+        /*
+         * VALOR FORMATADO
+         */
+
+        localStorage.setItem(
+            "valorInscricao",
+            valorFormatado
+        );
+
+
+        /*
+         * VALOR NUMÉRICO
+         */
+
+        localStorage.setItem(
+            "valorInscricaoNumerico",
+            String(valor)
+        );
+
+
+        /*
+         * PERCURSO
+         */
+
+        localStorage.setItem(
+            "percursoInscricao",
+            percursoSelecionado
+        );
+
+
+        /*
+         * NOME
+         */
+
+        localStorage.setItem(
+            "nomeInscricao",
+            nomeParticipante
+        );
+
+
+        /*
+         * LINK DA IZY
+         */
+
+        localStorage.setItem(
+            "izyPaymentUrl",
+            IZY_PAYMENT_URL
+        );
+
+
+        console.log(
+            "Dados salvos para página obrigado:",
+            {
+                nome: nomeParticipante,
+                percurso: percursoSelecionado,
+                valor: valorFormatado,
+                valorNumerico: valor,
+                izy: IZY_PAYMENT_URL
+            }
+        );
+    }
+
+
+    /* =====================================================
+       SUBMIT
+    ===================================================== */
 
     form.addEventListener(
         "submit",
-        async function (event) {
+        async (event) => {
 
             event.preventDefault();
-
 
             limparMensagem();
 
@@ -864,23 +986,49 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
 
+            /* ---------------------------------------------
+               VALOR
+            --------------------------------------------- */
+
+            const valor =
+                obterValorPercurso(
+                    percurso
+                );
+
+
+            if (!valor || valor <= 0) {
+
+                mostrarMensagem(
+                    "Não foi possível identificar o valor do percurso.",
+                    "erro"
+                );
+
+                console.error(
+                    "Percurso sem valor:",
+                    percurso
+                );
+
+                return;
+            }
+
+
             /* =================================================
-               ⭐ VERIFICAR CPF ANTES DE CADASTRAR
+               PROCESSAMENTO
             ================================================= */
 
             try {
 
-                if (botao) {
+                /* ---------------------------------------------
+                   BLOQUEAR BOTÃO
+                --------------------------------------------- */
 
-                    botao.disabled =
-                        true;
+                if (botao) {
+                    botao.disabled = true;
                 }
 
 
                 const spanBotao =
-                    botao?.querySelector(
-                        "span"
-                    );
+                    botao?.querySelector("span");
 
 
                 if (spanBotao) {
@@ -890,23 +1038,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
 
+                /* ---------------------------------------------
+                   VERIFICAR CPF
+                --------------------------------------------- */
+
                 const existe =
                     await verificarCPF(
                         cpfLimpo
                     );
 
 
-                /* ---------------------------------------------
-                   CPF JÁ CADASTRADO
-                --------------------------------------------- */
-
                 if (existe) {
-
-                    console.warn(
-                        "CPF já cadastrado:",
-                        cpfLimpo
-                    );
-
 
                     mostrarMensagem(
                         "⚠️ CPF já cadastrado! Já existe uma inscrição registrada para este CPF.",
@@ -918,9 +1060,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                     if (botao) {
-
-                        botao.disabled =
-                            false;
+                        botao.disabled = false;
                     }
 
 
@@ -935,28 +1075,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
 
-                /* =================================================
-                   CPF NOVO → CADASTRAR
-                ================================================= */
+                /* ---------------------------------------------
+                   CADASTRANDO
+                --------------------------------------------- */
 
                 if (spanBotao) {
 
                     spanBotao.textContent =
                         "CADASTRANDO...";
                 }
-
-
-                let valor =
-                    percurso.dataset.valor;
-
-
-                valor =
-                    valor
-                        ? Number(
-                            String(valor)
-                                .replace(",", ".")
-                        )
-                        : 89.90;
 
 
                 const dadosInscricao = {
@@ -1009,7 +1136,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 /* ---------------------------------------------
-                   INSERT
+                   INSERT SUPABASE
                 --------------------------------------------- */
 
                 const resultado =
@@ -1023,7 +1150,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 /* ---------------------------------------------
-                   ERRO
+                   ERRO SUPABASE
                 --------------------------------------------- */
 
                 if (resultado.error) {
@@ -1033,12 +1160,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         resultado.error
                     );
 
-
-                    /*
-                     * Mesmo que duas pessoas tentem
-                     * cadastrar o mesmo CPF ao mesmo tempo,
-                     * o banco continua protegendo a tabela.
-                     */
 
                     if (
                         resultado.error.code ===
@@ -1052,9 +1173,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                         if (botao) {
-
-                            botao.disabled =
-                                false;
+                            botao.disabled = false;
                         }
 
 
@@ -1076,12 +1195,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 /* =================================================
-                   SUCESSO
+                   INSCRIÇÃO REGISTRADA
                 ================================================= */
 
                 console.log(
-                    "Inscrição registrada:",
+                    "Inscrição registrada com sucesso:",
                     resultado.data
+                );
+
+
+                /* =================================================
+                   SALVAR DADOS PARA OBRIGADO
+                ================================================= */
+
+                salvarDadosInscricao(
+                    valor,
+                    percurso.value,
+                    nome.value.trim()
+                );
+
+
+                /* =================================================
+                   REDIRECIONAMENTO
+                ================================================= */
+
+                console.log(
+                    "Redirecionando para obrigado-inscricoes.html..."
                 );
 
 
@@ -1090,9 +1229,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
 
-            /* =====================================================
+            /* =================================================
                ERRO GERAL
-            ===================================================== */
+            ================================================= */
 
             catch (erro) {
 
@@ -1132,15 +1271,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (botao) {
 
-                    botao.disabled =
-                        false;
+                    botao.disabled = false;
                 }
 
 
                 const spanBotao =
-                    botao?.querySelector(
-                        "span"
-                    );
+                    botao?.querySelector("span");
 
 
                 if (spanBotao) {
@@ -1154,8 +1290,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       INICIALIZAÇÃO
-       ===================================================== */
+       INICIALIZAÇÃO DO RESUMO
+    ===================================================== */
 
     atualizarResumo();
 

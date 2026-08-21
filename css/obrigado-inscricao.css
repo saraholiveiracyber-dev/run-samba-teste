@@ -1,0 +1,794 @@
+/* =========================================================
+   RUN & SAMBA 2026
+   PÁGINA — INSCRIÇÃO REALIZADA
+========================================================= */
+
+:root {
+    --rs-black: #070707;
+    --rs-black-2: #0e0e0e;
+    --rs-black-3: #151515;
+
+    --rs-white: #ffffff;
+    --rs-gray: #a5a5a5;
+    --rs-gray-light: #d8d8d8;
+
+    --rs-blue: #0057ff;
+    --rs-blue-dark: #003bb5;
+
+    --rs-yellow: #ffd500;
+    --rs-green: #12b76a;
+
+    --rs-border: rgba(255, 255, 255, .10);
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+.obrigado-page,
+.obrigado-page *,
+.obrigado-page *::before,
+.obrigado-page *::after {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PÁGINA
+========================================================= */
+
+.obrigado-page {
+    position: relative;
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 70px 20px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(0, 87, 255, .20),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 0% 100%,
+            rgba(18, 183, 106, .08),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 100% 100%,
+            rgba(255, 213, 0, .07),
+            transparent 25%
+        ),
+        var(--rs-black);
+}
+
+
+/* =========================================================
+   ELEMENTOS DECORATIVOS
+========================================================= */
+
+.obrigado-page::before {
+    content: "";
+
+    position: absolute;
+
+    width: 650px;
+    height: 650px;
+
+    top: -330px;
+    right: -250px;
+
+    border: 1px solid rgba(0, 87, 255, .18);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+.obrigado-page::after {
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    bottom: -280px;
+    left: -180px;
+
+    border: 1px solid rgba(255, 213, 0, .12);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CARD PRINCIPAL
+========================================================= */
+
+.obrigado-card {
+    position: relative;
+    z-index: 2;
+
+    width: min(100%, 760px);
+
+    padding: 55px 60px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24, 24, 24, .98),
+            rgba(10, 10, 10, .98)
+        );
+
+    border: 1px solid var(--rs-border);
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 35px 100px rgba(0, 0, 0, .55);
+
+    overflow: hidden;
+}
+
+
+/* barra superior */
+
+.obrigado-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--rs-blue),
+            var(--rs-yellow),
+            var(--rs-green)
+        );
+}
+
+
+/* brilho */
+
+.obrigado-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    top: -160px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0, 87, 255, .18),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.obrigado-logo {
+    position: relative;
+    z-index: 2;
+
+    width: 170px;
+
+    max-width: 60%;
+
+    height: auto;
+
+    margin: 0 auto 35px;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   ÍCONE DE SUCESSO
+========================================================= */
+
+.sucesso-icon {
+    position: relative;
+    z-index: 2;
+
+    width: 82px;
+    height: 82px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 28px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--rs-green),
+            #07854c
+        );
+
+    color: white;
+
+    font-size: 38px;
+    font-weight: 800;
+
+    box-shadow:
+        0 0 0 8px rgba(18, 183, 106, .08),
+        0 18px 45px rgba(18, 183, 106, .25);
+
+    animation:
+        sucessoEntrada .7s cubic-bezier(.22, .61, .36, 1) both;
+}
+
+
+@keyframes sucessoEntrada {
+
+    0% {
+        opacity: 0;
+        transform: scale(.65);
+    }
+
+    70% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.obrigado-card h1 {
+    position: relative;
+    z-index: 2;
+
+    margin: 0;
+
+    color: var(--rs-white);
+
+    font-size: clamp(
+        32px,
+        5vw,
+        54px
+    );
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    letter-spacing: -.045em;
+}
+
+
+.obrigado-card h1::after {
+    content: "";
+
+    display: block;
+
+    width: 55px;
+    height: 3px;
+
+    margin: 22px auto 25px;
+
+    background: var(--rs-yellow);
+}
+
+
+/* =========================================================
+   TEXTOS
+========================================================= */
+
+.obrigado-card > p {
+    position: relative;
+    z-index: 2;
+
+    max-width: 600px;
+
+    margin: 0 auto 15px;
+
+    color: var(--rs-gray);
+
+    font-size: 15px;
+
+    line-height: 1.75;
+}
+
+
+.obrigado-card > p strong {
+    color: var(--rs-white);
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   AVISO
+========================================================= */
+
+.obrigado-destaque {
+    position: relative;
+    z-index: 2;
+
+    margin: 35px 0;
+
+    padding: 28px 30px;
+
+    text-align: left;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 213, 0, .09),
+            rgba(255, 213, 0, .025)
+        );
+
+    border: 1px solid rgba(255, 213, 0, .25);
+
+    border-left: 4px solid var(--rs-yellow);
+
+    border-radius: 14px;
+
+    color: #cfcfcf;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+.obrigado-destaque > strong:first-child {
+    display: inline-block;
+
+    color: var(--rs-yellow);
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: .08em;
+}
+
+
+.obrigado-destaque strong {
+    color: white;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   VALOR
+========================================================= */
+
+.obrigado-destaque strong:last-child {
+    color: var(--rs-yellow);
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   SEGUNDA ETAPA
+========================================================= */
+
+.obrigado-card h2 {
+    position: relative;
+    z-index: 2;
+
+    margin-top: 42px;
+    margin-bottom: 12px;
+
+    color: var(--rs-white);
+
+    font-size: 22px;
+
+    font-weight: 900;
+
+    letter-spacing: .03em;
+}
+
+
+.obrigado-card h2::before {
+    content: "ÚLTIMA ETAPA";
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: var(--rs-blue);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: .18em;
+}
+
+
+.obrigado-card h2 + p {
+    margin-bottom: 28px;
+}
+
+
+/* =========================================================
+   BOTÕES
+========================================================= */
+
+.obrigado-botoes {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 10px;
+}
+
+
+.btn-obrigado {
+    min-height: 62px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 38px;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: .10em;
+
+    text-transform: uppercase;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        background .3s ease;
+}
+
+
+.btn-principal {
+    position: relative;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--rs-blue),
+            var(--rs-blue-dark)
+        );
+
+    color: white;
+
+    box-shadow:
+        0 18px 40px rgba(0, 87, 255, .25);
+
+    overflow: hidden;
+}
+
+
+.btn-principal::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.20),
+            transparent
+        );
+
+    transition:
+        left .6s ease;
+}
+
+
+.btn-principal:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 25px 50px rgba(0, 87, 255, .35);
+}
+
+
+.btn-principal:hover::before {
+    left: 100%;
+}
+
+
+/* =========================================================
+   FOOTER DA PÁGINA
+========================================================= */
+
+.obrigado-footer {
+    position: relative;
+    z-index: 2;
+
+    margin-top: 42px;
+    padding-top: 24px;
+
+    border-top: 1px solid var(--rs-border);
+
+    color: #626262;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .obrigado-page {
+        padding: 40px 16px;
+    }
+
+
+    .obrigado-card {
+        padding: 45px 30px;
+
+        border-radius: 22px;
+    }
+
+
+    .obrigado-logo {
+        width: 145px;
+
+        margin-bottom: 28px;
+    }
+
+
+    .sucesso-icon {
+        width: 72px;
+        height: 72px;
+
+        font-size: 32px;
+
+        margin-bottom: 25px;
+    }
+
+
+    .obrigado-card h1 {
+        font-size: 36px;
+    }
+
+
+    .obrigado-card > p {
+        font-size: 14px;
+    }
+
+
+    .obrigado-destaque {
+        padding: 23px 20px;
+
+        font-size: 12px;
+    }
+
+
+    .obrigado-card h2 {
+        font-size: 20px;
+    }
+
+
+    .btn-obrigado {
+        width: 100%;
+
+        min-height: 58px;
+
+        padding: 0 20px;
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .obrigado-page {
+        align-items: flex-start;
+
+        padding: 25px 12px;
+    }
+
+
+    .obrigado-card {
+        padding: 38px 20px;
+
+        border-radius: 18px;
+    }
+
+
+    .obrigado-logo {
+        width: 125px;
+
+        margin-bottom: 24px;
+    }
+
+
+    .sucesso-icon {
+        width: 65px;
+        height: 65px;
+
+        font-size: 29px;
+
+        margin-bottom: 22px;
+    }
+
+
+    .obrigado-card h1 {
+        font-size: 30px;
+
+        line-height: 1.05;
+    }
+
+
+    .obrigado-card h1::after {
+        margin: 18px auto 20px;
+    }
+
+
+    .obrigado-card > p {
+        font-size: 13px;
+
+        line-height: 1.7;
+    }
+
+
+    .obrigado-destaque {
+        margin: 28px 0;
+
+        padding: 20px 17px;
+
+        font-size: 11.5px;
+
+        line-height: 1.65;
+    }
+
+
+    .obrigado-destaque strong:last-child {
+        font-size: 17px;
+    }
+
+
+    .obrigado-card h2 {
+        margin-top: 32px;
+
+        font-size: 18px;
+    }
+
+
+    .obrigado-card h2 + p {
+        font-size: 12.5px;
+    }
+
+
+    .btn-obrigado {
+        font-size: 10px;
+
+        letter-spacing: .07em;
+    }
+
+
+    .obrigado-footer {
+        margin-top: 32px;
+
+        font-size: 9px;
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR MUITO PEQUENO
+========================================================= */
+
+@media (max-width: 350px) {
+
+    .obrigado-card {
+        padding: 32px 16px;
+    }
+
+
+    .obrigado-card h1 {
+        font-size: 27px;
+    }
+
+
+    .obrigado-destaque {
+        padding: 18px 14px;
+    }
+
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+========================================================= */
+
+.btn-obrigado:focus-visible {
+    outline: 2px solid var(--rs-yellow);
+
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .sucesso-icon {
+        animation: none;
+    }
+
+    .btn-principal,
+    .btn-principal::before {
+        transition: none;
+    }
+
+}

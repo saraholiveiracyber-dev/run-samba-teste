@@ -15,6 +15,11 @@
         content="Inscrições oficiais da 2ª edição Run & Samba 2026."
     >
 
+    <meta
+        name="theme-color"
+        content="#080808"
+    >
+
     <title>Inscrições | Run & Samba</title>
 
 
@@ -47,7 +52,7 @@
 
 
     <!-- =====================================================
-         CSS DA PÁGINA
+         CSS DAS INSCRIÇÕES
     ====================================================== -->
 
     <link
@@ -62,7 +67,7 @@
 
 
 <!-- =====================================================
-     HEADER
+     HEADER / MENU
 ===================================================== -->
 
 <header class="header">
@@ -86,29 +91,38 @@
 
         </a>
 
-<button
-    class="menu-mobile"
-    id="menuMobile"
-    type="button"
-    aria-label="Abrir menu"
-    aria-expanded="false"
-    aria-controls="mobileMenu"
->
-    <span class="menu-mobile-icon">
-        <span></span>
-        <span></span>
-        <span></span>
-    </span>
 
-    <span class="menu-mobile-text">
-        MENU
-    </span>
-</button>
+        <!-- =================================================
+             BOTÃO MENU MOBILE
+        ================================================== -->
+
+        <button
+            class="menu-mobile"
+            id="menuMobile"
+            type="button"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+        >
+
+            <span class="menu-mobile-icon">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </span>
+
+            <span class="menu-mobile-text">
+                MENU
+            </span>
+
+        </button>
 
 
-
-        <!-- MENU MOBILE -->
-<!-- MENU -->
+        <!-- =================================================
+             MENU DESKTOP
+        ================================================== -->
 
         <ul class="menu">
 
@@ -127,7 +141,6 @@
             <li>
                 <a
                     href="inscricoes.html"
-                    class="active"
                     aria-current="page"
                 >
                     INSCRIÇÕES
@@ -155,7 +168,9 @@
         </ul>
 
 
-        <!-- BOTÃO HEADER -->
+        <!-- =================================================
+             BOTÃO HEADER
+        ================================================== -->
 
         <a
             href="inscricoes.html"
@@ -167,106 +182,182 @@
     </nav>
 
 
+    <!-- =================================================
+         OVERLAY MOBILE
+    ================================================== -->
 
-<div
-    class="mobile-menu-overlay"
-    id="mobileMenuOverlay"
-    aria-hidden="true"
-></div>
+    <div
+        class="mobile-menu-overlay"
+        id="mobileMenuOverlay"
+        aria-hidden="true"
+    ></div>
 
-<aside
-    class="mobile-menu-panel"
-    id="mobileMenu"
-    aria-hidden="true"
->
 
-    <div class="mobile-menu-header">
+    <!-- =================================================
+         MENU MOBILE
+    ================================================== -->
 
-        <a
-            href="index.html"
-            class="mobile-menu-logo"
-            aria-label="Run & Samba - Início"
-        >
+    <aside
+        class="mobile-menu-panel"
+        id="mobileMenu"
+        aria-hidden="true"
+    >
 
-            <img
-                src="img/LOGO.png"
-                alt="Run & Samba"
+
+        <!-- CABEÇALHO -->
+
+        <div class="mobile-menu-header">
+
+            <a
+                href="index.html"
+                class="mobile-menu-logo"
+                aria-label="Run & Samba - Início"
             >
 
-        </a>
+                <img
+                    src="img/LOGO.png"
+                    alt="Run & Samba"
+                >
 
-        <button
-            type="button"
-            class="mobile-menu-close"
-            id="mobileMenuClose"
-            aria-label="Fechar menu"
+            </a>
+
+
+            <button
+                type="button"
+                class="mobile-menu-close"
+                id="mobileMenuClose"
+                aria-label="Fechar menu"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <!-- LABEL -->
+
+        <div class="mobile-menu-label">
+            NAVEGAÇÃO
+        </div>
+
+
+        <!-- NAVEGAÇÃO -->
+
+        <nav
+            class="mobile-menu-nav"
+            aria-label="Menu principal"
         >
-            ×
-        </button>
 
-    </div>
+            <a href="index.html">
 
+                <span>
+                    01
+                </span>
 
-    <div class="mobile-menu-label">
-        NAVEGAÇÃO
-    </div>
+                <strong>
+                    INÍCIO
+                </strong>
 
-
-    <nav class="mobile-menu-nav" aria-label="Menu principal">
-
-        <a href="index.html">
-            <span>01</span>
-            <strong>INÍCIO</strong>
-        </a>
-
-        <a href="sobre.html">
-            <span>02</span>
-            <strong>SOBRE</strong>
-        </a>
-
-        <a href="inscricoes.html">
-            <span>03</span>
-            <strong>INSCRIÇÕES</strong>
-        </a>
-
-        <a href="galeria.html">
-            <span>04</span>
-            <strong>FOTOS</strong>
-        </a>
-
-        <a href="parceiros.html">
-            <span>05</span>
-            <strong>PARCEIROS</strong>
-        </a>
-
-        <a href="contato.html">
-            <span>06</span>
-            <strong>CONTATO</strong>
-        </a>
-
-    </nav>
+            </a>
 
 
-    <div class="mobile-menu-footer">
+            <a href="sobre.html">
 
-        <a
-            href="inscricoes.html"
-            class="mobile-menu-cta"
-        >
-            INSCREVA-SE
-            <span>→</span>
-        </a>
+                <span>
+                    02
+                </span>
 
-        <p>
-            RUN & SAMBA 2026
-        </p>
+                <strong>
+                    SOBRE
+                </strong>
 
-    </div>
+            </a>
 
-</aside>
+
+            <a
+                href="inscricoes.html"
+                class="active"
+            >
+
+                <span>
+                    03
+                </span>
+
+                <strong>
+                    INSCRIÇÕES
+                </strong>
+
+            </a>
+
+
+            <a href="galeria.html">
+
+                <span>
+                    04
+                </span>
+
+                <strong>
+                    FOTOS
+                </strong>
+
+            </a>
+
+
+            <a href="parceiros.html">
+
+                <span>
+                    05
+                </span>
+
+                <strong>
+                    PARCEIROS
+                </strong>
+
+            </a>
+
+
+            <a href="contato.html">
+
+                <span>
+                    06
+                </span>
+
+                <strong>
+                    CONTATO
+                </strong>
+
+            </a>
+
+        </nav>
+
+
+        <!-- RODAPÉ DO MENU -->
+
+        <div class="mobile-menu-footer">
+
+            <a
+                href="inscricoes.html"
+                class="mobile-menu-cta"
+            >
+
+                INSCREVA-SE
+
+                <span>
+                    →
+                </span>
+
+            </a>
+
+
+            <p>
+                RUN & SAMBA 2026
+            </p>
+
+        </div>
+
+    </aside>
 
 </header>
-
 
 
 <!-- =====================================================
@@ -284,29 +375,60 @@
 
         <div class="hero-content-inscricao">
 
+
             <span>
-                RUN & SAMBA • 2026
+                RUN &amp; SAMBA • 2026
             </span>
+
 
             <h1>
                 INSCRIÇÕES
             </h1>
 
+
             <div class="linha-amarela"></div>
 
+
             <h2>
-                2ª EDIÇÃO RUN & SAMBA 2026
+                2ª EDIÇÃO RUN &amp; SAMBA 2026
             </h2>
+
 
             <p>
                 Faça parte dessa experiência que une
                 corrida, música e propósito.
             </p>
 
+
+            <!-- PAGAMENTO -->
+
+            <div class="hero-pagamento">
+
+                <span>
+                    JÁ FEZ SUA INSCRIÇÃO?
+                </span>
+
+
+                <a
+                    href="pagar-inscricao.html"
+                    class="hero-pagamento-link"
+                >
+
+                    <span>
+                        FAZER PAGAMENTO
+                    </span>
+
+                    <strong>
+                        →
+                    </strong>
+
+                </a>
+
+            </div>
+
         </div>
 
     </section>
-
 
 
     <!-- =================================================
@@ -318,9 +440,7 @@
         <div class="container-inscricao">
 
 
-            <!-- =================================================
-                 INTRODUÇÃO
-            ================================================== -->
+            <!-- INTRO -->
 
             <div class="intro-inscricao">
 
@@ -328,21 +448,22 @@
                     INSCRIÇÃO OFICIAL
                 </span>
 
+
                 <h2>
                     GARANTA SUA VAGA
                 </h2>
 
+
                 <p>
                     Preencha seus dados abaixo para participar
-                    da 2ª edição da Run & Samba.
+                    da 2ª edição da Run &amp; Samba.
                 </p>
 
             </div>
 
 
-
             <!-- =================================================
-                 LAYOUT PRINCIPAL
+                 LAYOUT
             ================================================== -->
 
             <div class="layout-inscricao">
@@ -354,7 +475,6 @@
 
                 <div class="formulario">
 
-
                     <form
                         id="form-inscricao"
                         autocomplete="on"
@@ -363,16 +483,18 @@
 
 
                         <!-- =================================================
-                             01 — DADOS DO PARTICIPANTE
+                             BLOCO 01
                         ================================================== -->
 
                         <div class="bloco-form">
+
 
                             <div class="titulo-bloco">
 
                                 <span class="numero-bloco">
                                     01
                                 </span>
+
 
                                 <div>
 
@@ -395,7 +517,6 @@
                             </p>
 
 
-
                             <div class="campos">
 
 
@@ -407,6 +528,7 @@
                                         NOME COMPLETO
                                         <b>*</b>
                                     </label>
+
 
                                     <input
                                         type="text"
@@ -420,7 +542,6 @@
                                 </div>
 
 
-
                                 <!-- CPF -->
 
                                 <div class="campo">
@@ -429,6 +550,7 @@
                                         CPF
                                         <b>*</b>
                                     </label>
+
 
                                     <input
                                         type="text"
@@ -444,8 +566,7 @@
                                 </div>
 
 
-
-                                <!-- DATA DE NASCIMENTO -->
+                                <!-- NASCIMENTO -->
 
                                 <div class="campo">
 
@@ -453,6 +574,7 @@
                                         DATA DE NASCIMENTO
                                         <b>*</b>
                                     </label>
+
 
                                     <input
                                         type="text"
@@ -468,8 +590,7 @@
                                 </div>
 
 
-
-                                <!-- E-MAIL -->
+                                <!-- EMAIL -->
 
                                 <div class="campo">
 
@@ -477,6 +598,7 @@
                                         E-MAIL
                                         <b>*</b>
                                     </label>
+
 
                                     <input
                                         type="email"
@@ -490,7 +612,6 @@
                                 </div>
 
 
-
                                 <!-- TELEFONE -->
 
                                 <div class="campo">
@@ -499,6 +620,7 @@
                                         TELEFONE / WHATSAPP
                                         <b>*</b>
                                     </label>
+
 
                                     <input
                                         type="tel"
@@ -514,7 +636,6 @@
                                 </div>
 
 
-
                                 <!-- SEXO -->
 
                                 <div class="campo">
@@ -523,6 +644,7 @@
                                         SEXO
                                         <b>*</b>
                                     </label>
+
 
                                     <select
                                         id="sexo"
@@ -555,10 +677,7 @@
                                 </div>
 
 
-
-                                <!-- =================================================
-                                     TAMANHO DA CAMISETA
-                                ================================================== -->
+                                <!-- CAMISETA -->
 
                                 <div class="campo campo-full">
 
@@ -640,18 +759,19 @@
                         </div>
 
 
-
                         <!-- =================================================
-                             02 — PERCURSO
+                             BLOCO 02
                         ================================================== -->
 
                         <div class="bloco-form percurso-bloco">
+
 
                             <div class="titulo-bloco">
 
                                 <span class="numero-bloco">
                                     02
                                 </span>
+
 
                                 <div>
 
@@ -674,9 +794,6 @@
                             </p>
 
 
-
-                            <!-- PERCURSOS -->
-
                             <div class="percursos">
 
 
@@ -688,9 +805,10 @@
                                         type="radio"
                                         name="percurso"
                                         value="5 KM"
-                                        data-valor="89,90"
+                                        data-valor="89.90"
                                         required
                                     >
+
 
                                     <span>
 
@@ -707,7 +825,6 @@
                                 </label>
 
 
-
                                 <!-- 10 KM -->
 
                                 <label class="percurso">
@@ -716,8 +833,9 @@
                                         type="radio"
                                         name="percurso"
                                         value="10 KM"
-                                        data-valor="89,90"
+                                        data-valor="89.90"
                                     >
+
 
                                     <span>
 
@@ -738,18 +856,19 @@
                         </div>
 
 
-
                         <!-- =================================================
-                             03 — CONFIRMAÇÃO
+                             BLOCO 03
                         ================================================== -->
 
                         <div class="bloco-form bloco-final">
+
 
                             <div class="titulo-bloco">
 
                                 <span class="numero-bloco">
                                     03
                                 </span>
+
 
                                 <div>
 
@@ -772,10 +891,7 @@
                             </p>
 
 
-
-                            <!-- =================================================
-                                 TERMO
-                            ================================================== -->
+                            <!-- TERMO -->
 
                             <div class="termo-aceite">
 
@@ -788,9 +904,11 @@
                                         required
                                     >
 
+
                                     <span>
 
                                         Li e aceito o
+
 
                                         <button
                                             type="button"
@@ -799,6 +917,7 @@
                                         >
                                             Termo de Responsabilidade
                                         </button>
+
 
                                         e declaro que as informações
                                         fornecidas são verdadeiras.
@@ -810,9 +929,8 @@
                             </div>
 
 
-
                             <!-- =================================================
-                                 MODAL DO TERMO
+                                 MODAL TERMO
                             ================================================== -->
 
                             <div
@@ -824,13 +942,15 @@
                                 aria-labelledby="tituloTermo"
                             >
 
-                                <div class="modal-termo-overlay"></div>
+
+                                <div
+                                    class="modal-termo-overlay"
+                                    id="modalTermoOverlay"
+                                ></div>
 
 
                                 <div class="modal-termo-box">
 
-
-                                    <!-- FECHAR -->
 
                                     <button
                                         type="button"
@@ -842,13 +962,12 @@
                                     </button>
 
 
-                                    <!-- CABEÇALHO -->
-
                                     <div class="termo-header">
 
                                         <span>
-                                            RUN & SAMBA
+                                            RUN &amp; SAMBA
                                         </span>
+
 
                                         <h2 id="tituloTermo">
                                             TERMO DE RESPONSABILIDADE
@@ -856,8 +975,6 @@
 
                                     </div>
 
-
-                                    <!-- CONTEÚDO -->
 
                                     <div class="termo-conteudo">
 
@@ -869,8 +986,6 @@
 
                                     </div>
 
-
-                                    <!-- BOTÃO -->
 
                                     <button
                                         type="button"
@@ -885,10 +1000,7 @@
                             </div>
 
 
-
-                            <!-- =================================================
-                                 BOTÃO DE ENVIO
-                            ================================================== -->
+                            <!-- BOTÃO -->
 
                             <button
                                 type="submit"
@@ -900,6 +1012,7 @@
                                     CONTINUAR INSCRIÇÃO
                                 </span>
 
+
                                 <strong>
                                     →
                                 </strong>
@@ -907,7 +1020,7 @@
                             </button>
 
 
-                            <!-- MENSAGEM DO FORMULÁRIO -->
+                            <!-- MENSAGEM -->
 
                             <div
                                 id="mensagem-formulario"
@@ -916,8 +1029,6 @@
                                 aria-live="polite"
                             ></div>
 
-
-                            <!-- SEGURANÇA -->
 
                             <small class="seguranca">
                                 Seus dados serão utilizados exclusivamente
@@ -931,9 +1042,8 @@
                 </div>
 
 
-
                 <!-- =================================================
-                     RESUMO DA INSCRIÇÃO
+                     RESUMO
                 ================================================== -->
 
                 <aside
@@ -945,7 +1055,7 @@
                     <div class="resumo-topo">
 
                         <span>
-                            RUN & SAMBA
+                            RUN &amp; SAMBA
                         </span>
 
                         <small>
@@ -961,9 +1071,6 @@
                     </h3>
 
 
-
-                    <!-- PARTICIPANTE -->
-
                     <div class="resumo-linha">
 
                         <span>
@@ -976,9 +1083,6 @@
 
                     </div>
 
-
-
-                    <!-- PERCURSO -->
 
                     <div class="resumo-linha">
 
@@ -993,9 +1097,6 @@
                     </div>
 
 
-
-                    <!-- CAMISETA -->
-
                     <div class="resumo-linha">
 
                         <span>
@@ -1009,9 +1110,6 @@
                     </div>
 
 
-
-                    <!-- VALOR -->
-
                     <div class="resumo-total">
 
                         <span>
@@ -1024,9 +1122,6 @@
 
                     </div>
 
-
-
-                    <!-- SEGURANÇA -->
 
                     <div class="resumo-seguranca">
 
@@ -1050,9 +1145,8 @@
     </section>
 
 
-
     <!-- =================================================
-         CTA
+         CTA FINAL
     ================================================== -->
 
     <section class="cta-inscricao">
@@ -1060,8 +1154,9 @@
         <div>
 
             <span>
-                RUN & SAMBA 2026
+                RUN &amp; SAMBA 2026
             </span>
+
 
             <h2>
                 SUA CORRIDA.
@@ -1075,121 +1170,37 @@
 </main>
 
 
-
-<!-- =====================================================
+<!-- =========================================================
      FOOTER
-===================================================== -->
+========================================================= -->
 
 <footer class="footer">
 
     <div class="container">
 
-        <div class="footer-grid">
-
-
-            <!-- MARCA -->
-
-            <div class="footer-brand">
-
-                <img
-                    src="img/LOGO.png"
-                    alt="Run & Samba"
-                >
-
-                <p>
-                    Esporte, música e propósito
-                    em um só lugar.
-                </p>
-
-            </div>
-
-
-
-            <!-- NAVEGAÇÃO -->
-
-            <div class="footer-column">
-
-                <h4>
-                    NAVEGAÇÃO
-                </h4>
-
-                <a href="index.html">
-                    Início
-                </a>
-
-                <a href="sobre.html">
-                    Sobre
-                </a>
-
-                <a href="inscricoes.html">
-                    Inscrições
-                </a>
-
-                <a href="galeria.html">
-                    Fotos
-                </a>
-
-            </div>
-
-
-
-            <!-- EVENTO -->
-
-            <div class="footer-column">
-
-                <h4>
-                    EVENTO
-                </h4>
-
-                <a href="parceiros.html">
-                    Parceiros
-                </a>
-
-                <a href="contato.html">
-                    Contato
-                </a>
-
-            </div>
-
-
-
-            <!-- CONTATO -->
-
-            <div class="footer-column">
-
-                <h4>
-                    CONTATO
-                </h4>
-
-                <p>
-                    runesamba.oficial@gmail.com
-                </p>
-
-                <p>
-                    (62) 99210-4211
-                </p>
-
-                <p>
-                    Luziânia - GO
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- LINHA FINAL -->
-
         <div class="footer-bottom">
 
-            <p>
-                © 2026 Run & Samba. Todos os direitos reservados.
+            <p class="footer-copy">
+
+                © 2026 RUN & SAMBA
+
+                <span>
+                    •
+                </span>
+
+                TODOS OS DIREITOS RESERVADOS
+
             </p>
 
-            <p>
-                Desenvolvido por
-                <strong>iDigital Agência</strong>
+
+            <p class="footer-credit">
+
+                CRIADO POR
+
+                <strong>
+                    iDIGITAL AGÊNCIA
+                </strong>
+
             </p>
 
         </div>
@@ -1198,32 +1209,19 @@
 
 </footer>
 
-
-
-<!-- =====================================================
-     SUPABASE
-     
-     A conexão e o INSERT devem ficar no
-     js/inscricoes.js.
-     
-     Não coloque a chave SERVICE_ROLE aqui.
-===================================================== -->
-
 <script
     src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
 ></script>
 
 
-
 <!-- =====================================================
-     JAVASCRIPT PRINCIPAL
+     JAVASCRIPT DO MENU
 ===================================================== -->
 
 <script
     src="js/main.js"
     defer
 ></script>
-
 
 
 <!-- =====================================================
@@ -1235,9 +1233,6 @@
     defer
 ></script>
 
-
-
-<script src="js/script.js"></script>
 
 </body>
 
