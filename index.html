@@ -1,968 +1,389 @@
-﻿<!DOCTYPE html>
-
+﻿
+<!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#06152b">
+  <meta name="description" content="Run & Samba 2026. Corrida, energia e música em Luziânia - GO. 2ª edição, 20 de novembro de 2026.">
 
-    <meta charset="UTF-8">
+  <title>Run & Samba 2026 | Corra. Sinta. Viva.</title>
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <meta
-        name="description"
-        content="Run & Samba 2026 — corrida, música ao vivo, energia e celebração. 2ª edição em Luziânia - GO."
-    >
-
-    <meta
-        name="theme-color"
-        content="#080808"
-    >
-
-    <title>Run & Samba 2026 | Corra. Sinta. Viva.</title>
-
-
-    <!-- GOOGLE FONTS -->
-
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet"
-    >
-
-
-    <!-- CSS -->
-
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    >
-
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
 </head>
-
 
 <body>
 
+<header class="header" id="topo">
+  <nav class="navbar container" aria-label="Navegação principal">
 
-<!-- =========================================================
-     HEADER
-========================================================= -->
+    <a href="index.html" class="logo-link" aria-label="Run & Samba - Início">
+      <img src="img/LOGO.png" alt="Run & Samba" class="logo">
+    </a>
 
-<header class="header">
+    <ul class="menu">
+      <li><a href="index.html" class="active">INÍCIO</a></li>
+      <li><a href="sobre.html">SOBRE</a></li>
+      <li><a href="inscricoes.html">INSCRIÇÕES</a></li>
+      <li><a href="galeria.html">FOTOS</a></li>
+      <li><a href="parceiros.html">PARCEIROS</a></li>
+      <li><a href="contato.html">CONTATO</a></li>
+    </ul>
 
-    <nav class="navbar container">
+    <a href="inscricoes.html" class="btn-header">
+      INSCREVA-SE <span>↗</span>
+    </a>
 
+    <button
+      class="menu-mobile"
+      id="menuMobileButton"
+      type="button"
+      aria-label="Abrir menu"
+      aria-controls="mobileMenuPanel"
+      aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-        <!-- LOGO -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 
-        <a
-            href="index.html"
-            class="logo-link"
-            aria-label="Run & Samba - Página inicial"
-        >
+  <aside class="mobile-menu-panel" id="mobileMenuPanel" aria-label="Menu mobile">
+    <div class="mobile-menu-header">
+      <a href="index.html">
+        <img src="img/LOGO.png" alt="Run & Samba">
+      </a>
+      <button type="button" class="mobile-menu-close" id="mobileMenuClose" aria-label="Fechar menu">×</button>
+    </div>
 
-            <img
-                src="img/LOGO.png"
-                alt="Run & Samba"
-                class="logo"
-            >
+    <span class="mobile-menu-label">NAVEGAÇÃO</span>
 
-        </a>
-
-
-        <!-- MENU DESKTOP -->
-
-        <ul class="menu">
-
-            <li>
-                <a
-                    href="index.html"
-                    class="active"
-                    aria-current="page"
-                >
-                    INÍCIO
-                </a>
-            </li>
-
-            <li>
-                <a href="sobre.html">
-                    SOBRE
-                </a>
-            </li>
-
-            <li>
-                <a href="inscricoes.html">
-                    INSCRIÇÕES
-                </a>
-            </li>
-
-            <li>
-                <a href="galeria.html">
-                    FOTOS
-                </a>
-            </li>
-
-            <li>
-                <a href="parceiros.html">
-                    PARCEIROS
-                </a>
-            </li>
-
-            <li>
-                <a href="contato.html">
-                    CONTATO
-                </a>
-            </li>
-
-        </ul>
-
-
-        <!-- CTA -->
-
-        <a
-            href="inscricoes.html"
-            class="btn-header"
-        >
-            INSCREVA-SE
-        </a>
-
-
-        <!-- MENU MOBILE -->
-
-        <button
-            class="menu-mobile"
-            id="menuMobile"
-            type="button"
-            aria-label="Abrir menu"
-            aria-expanded="false"
-            aria-controls="mobileMenu"
-        >
-
-            <span class="menu-mobile-icon">
-
-                <span></span>
-                <span></span>
-                <span></span>
-
-            </span>
-
-            <span class="menu-mobile-text">
-                MENU
-            </span>
-
-        </button>
-
-
+    <nav class="mobile-menu-nav">
+      <a href="index.html" class="mobile-active"><span>01</span><strong>INÍCIO</strong></a>
+      <a href="sobre.html"><span>02</span><strong>SOBRE</strong></a>
+      <a href="inscricoes.html"><span>03</span><strong>INSCRIÇÕES</strong></a>
+      <a href="galeria.html"><span>04</span><strong>FOTOS</strong></a>
+      <a href="parceiros.html"><span>05</span><strong>PARCEIROS</strong></a>
+      <a href="contato.html"><span>06</span><strong>CONTATO</strong></a>
     </nav>
 
-
-    <!-- OVERLAY -->
-
-    <div
-        class="mobile-menu-overlay"
-        id="mobileMenuOverlay"
-    ></div>
-
-
-    <!-- MENU MOBILE -->
-
-    <aside
-        class="mobile-menu-panel"
-        id="mobileMenu"
-    >
-
-        <div class="mobile-menu-header">
-
-            <a
-                href="index.html"
-                class="mobile-menu-logo"
-            >
-
-                <img
-                    src="img/LOGO.png"
-                    alt="Run & Samba"
-                >
-
-            </a>
-
-
-            <button
-                type="button"
-                class="mobile-menu-close"
-                id="mobileMenuClose"
-                aria-label="Fechar menu"
-            >
-                ×
-            </button>
-
-        </div>
-
-
-        <span class="mobile-menu-label">
-            NAVEGAÇÃO
-        </span>
-
-
-        <nav class="mobile-menu-nav">
-
-            <a
-                href="index.html"
-                class="mobile-active"
-            >
-                <span>01</span>
-                <strong>INÍCIO</strong>
-            </a>
-
-            <a href="sobre.html">
-                <span>02</span>
-                <strong>SOBRE</strong>
-            </a>
-
-            <a href="inscricoes.html">
-                <span>03</span>
-                <strong>INSCRIÇÕES</strong>
-            </a>
-
-            <a href="galeria.html">
-                <span>04</span>
-                <strong>FOTOS</strong>
-            </a>
-
-            <a href="parceiros.html">
-                <span>05</span>
-                <strong>PARCEIROS</strong>
-            </a>
-
-            <a href="contato.html">
-                <span>06</span>
-                <strong>CONTATO</strong>
-            </a>
-
-        </nav>
-
-
-        <div class="mobile-menu-footer">
-
-            <a
-                href="inscricoes.html"
-                class="mobile-menu-cta"
-            >
-                INSCREVA-SE
-
-                <span>→</span>
-            </a>
-
-
-            <p>
-                RUN & SAMBA 2026
-            </p>
-
-        </div>
-
-    </aside>
-
+    <div class="mobile-menu-footer">
+      <a href="inscricoes.html" class="mobile-menu-cta">GARANTIR MINHA VAGA ↗</a>
+      <p>RUN & SAMBA 2026</p>
+    </div>
+  </aside>
 </header>
-
-
 
 <main>
 
+  <!-- HERO -->
+  <section class="home-hero">
+    <div class="hero-glow hero-glow-one"></div>
+    <div class="hero-glow hero-glow-two"></div>
 
-<!-- =========================================================
-     HERO
-========================================================= -->
-
-<section class="home-hero">
-
-    <div class="home-hero-background"></div>
-
-    <div class="home-hero-overlay"></div>
-
-
-    <div class="container home-hero-content">
-
-
-        <!-- TEXTO -->
-
-        <div class="home-hero-copy">
-
-            <span class="home-eyebrow">
-                2ª EDIÇÃO • 20 DE NOVEMBRO DE 2026
-            </span>
-
-
-            <h1>
-
-                CORRA.
-
-                <span>
-                    SINTA.
-                </span>
-
-                VIVA.
-
-            </h1>
-
-
-            <p class="home-hero-description">
-
-                Uma experiência que une
-
-                <strong>
-                    corrida, energia, música ao vivo
-                    e celebração.
-                </strong>
-
-            </p>
-
-
-            <div class="home-hero-buttons">
-
-                <a
-                    href="inscricoes.html"
-                    class="home-btn-primary"
-                >
-
-                    GARANTIR MINHA VAGA
-
-                    <span>→</span>
-
-                </a>
-
-
-                <a
-                    href="#evento"
-                    class="home-btn-secondary"
-                >
-
-                    VER INFORMAÇÕES
-
-                    <span>↓</span>
-
-                </a>
-
-            </div>
-
+    <div class="container hero-layout">
+      <div class="home-hero-copy">
+        <div class="hero-badge">
+          <span class="status-dot"></span>
+          2ª EDIÇÃO · LUZIÂNIA - GO
         </div>
 
+        <p class="hero-date">20 DE NOVEMBRO DE 2026</p>
 
-        <!-- DATA -->
+        <h1>
+          CORRA<span class="title-dot">.</span><br>
+          <span class="title-green">SINTA.</span><br>
+          VIVA<span class="title-dot">.</span>
+        </h1>
 
-        <div class="home-hero-event">
+        <p class="home-hero-description">
+          Supere seus limites. Sinta a energia.
+          Viva uma experiência que vai além da linha de chegada.
+        </p>
 
-            <strong>
-                20
-            </strong>
-
-
-            <div>
-
-                <span>
-                    NOVEMBRO
-                </span>
-
-                <b>
-                    2026
-                </b>
-
-                <small>
-                    LUZIÂNIA • GO
-                </small>
-
-            </div>
-
+        <div class="hero-tags">
+          <span>5 KM</span>
+          <span>10 KM</span>
+          <span>CHIP DE CRONOMETRAGEM</span>
         </div>
 
+        <div class="home-hero-buttons">
+          <a href="inscricoes.html" class="btn-primary">
+            GARANTIR MINHA VAGA <span>↗</span>
+          </a>
+          <a
+            href="https://drive.google.com/file/d/1_bYHvul6stq7cKtX7BKLyaaseByjSh46/view"
+            class="btn-secondary"
+            target="_blank"
+            rel="noopener noreferrer">
+            ↗ REGULAMENTO OFICIAL
+          </a>
+        </div>
 
+        <div class="hero-location">
+          <span class="location-mark">●</span>
+          <span>LUZIÂNIA <strong>•</strong> GOIÁS, BRASIL</span>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <div class="hero-number">02</div>
+        <div class="hero-side-line"></div>
+        <p>UMA NOVA<br>EXPERIÊNCIA<br><strong>COMEÇA AQUI.</strong></p>
+        <span class="hero-side-year">RUN & SAMBA · 2026</span>
+      </div>
     </div>
 
-</section>
-
-
-
-<!-- =========================================================
-     INFORMAÇÕES
-========================================================= -->
-
-<section
-    class="home-event-strip"
-    id="evento"
->
-
-    <div class="container home-event-grid">
-
-
-        <div class="home-event-item">
-
-            <span>
-                DATA
-            </span>
-
-            <strong>
-                20.11.2026
-            </strong>
-
-        </div>
-
-
-        <div class="home-event-item">
-
-            <span>
-                LOCAL
-            </span>
-
-            <strong>
-                LUZIÂNIA • GO
-            </strong>
-
-        </div>
-
-
-        <div class="home-event-item">
-
-            <span>
-                PERCURSOS
-            </span>
-
-            <strong>
-                5K / 10K
-            </strong>
-
-        </div>
-
-
-        <div class="home-event-item">
-
-            <span>
-                CRONOMETRAGEM
-            </span>
-
-            <strong>
-                CHIP ELETRÔNICO
-            </strong>
-
-        </div>
-
-
+    <div class="hero-bottom">
+      <span>ESPORTE · ENERGIA · EXPERIÊNCIA</span>
+      <a href="#evento">DESCUBRA O EVENTO <span>↓</span></a>
     </div>
+  </section>
 
-</section>
+  <!-- INFORMAÇÕES DO EVENTO -->
+  <section class="event-strip" id="evento">
+    <div class="container event-grid">
+      <div class="event-item">
+        <span class="event-label">DATA DO EVENTO</span>
+        <strong>20 <small>NOV</small> 2026</strong>
+      </div>
+      <div class="event-item">
+        <span class="event-label">LOCAL</span>
+        <strong>LUZIÂNIA <small>• GO</small></strong>
+      </div>
+      <div class="event-item">
+        <span class="event-label">PERCURSOS</span>
+        <strong>5K <small>/</small> 10K</strong>
+      </div>
+      <div class="event-item">
+        <span class="event-label">CRONOMETRAGEM</span>
+        <strong class="event-green">CHIP ELETRÔNICO</strong>
+      </div>
+    </div>
+  </section>
 
-
-
-<!-- =========================================================
-     MOMENTOS
-========================================================= -->
-
-<section class="home-gallery">
-
+  <!-- GALERIA VERTICAL TIPO STORIES -->
+  <section class="home-gallery" id="momentos">
     <div class="container">
-
-
-        <div class="section-top">
-
-            <div>
-
-                <span class="section-label">
-                    01 • MOMENTOS
-                </span>
-
-
-                <h2>
-
-                    CORRA.
-
-                    <span>
-                        VIVA O MOMENTO.
-                    </span>
-
-                </h2>
-
-            </div>
-
-
-            <a
-                href="galeria.html"
-                class="text-link"
-            >
-                VER GALERIA →
-
-            </a>
-
+      <div class="section-heading">
+        <div>
+          <span class="section-label"><span>01</span> · MOMENTOS</span>
+          <h2>VIVA. <span>REVIVA.</span></h2>
+          <p class="section-description">
+            Cada passo conta uma história. Relembre a energia do Run & Samba.
+          </p>
         </div>
 
-
+        <div class="gallery-controls">
+          <button type="button" class="gallery-arrow" id="galleryPrev" aria-label="Fotos anteriores">←</button>
+          <button type="button" class="gallery-arrow" id="galleryNext" aria-label="Próximas fotos">→</button>
+        </div>
+      </div>
     </div>
 
+    <div class="gallery-window" id="galleryWindow">
+      <div class="home-gallery-track" id="galleryTrack">
 
-    <div class="home-gallery-track">
+        <article class="home-gallery-item">
+          <img src="img/PHOTO1.jpg" alt="Momento Run & Samba 1" loading="lazy">
+          <span class="photo-number">01 / 09</span>
+        </article>
 
+        <article class="home-gallery-item">
+          <img src="img/PHOTO2.jpg" alt="Momento Run & Samba 2" loading="lazy">
+          <span class="photo-number">02 / 09</span>
+        </article>
 
-        <div class="home-gallery-item">
-            <img
-                src="img/PHOTO1.jpg"
-                alt="Participantes do evento"
-            >
-        </div>
+        <article class="home-gallery-item">
+          <img src="img/PHOTO3.jpg" alt="Momento Run & Samba 3" loading="lazy">
+          <span class="photo-number">03 / 09</span>
+        </article>
 
+        <article class="home-gallery-item">
+          <img src="img/PHOTO4.jpg" alt="Momento Run & Samba 4" loading="lazy">
+          <span class="photo-number">04 / 09</span>
+        </article>
 
-        <div class="home-gallery-item">
-            <img
-                src="img/PHOTO2.jpg"
-                alt="Atletas correndo"
-            >
-        </div>
+        <article class="home-gallery-item">
+          <img src="img/PHOTO5.jpg" alt="Momento Run & Samba 5" loading="lazy">
+          <span class="photo-number">05 / 09</span>
+        </article>
 
+        <article class="home-gallery-item">
+          <img src="img/PHOTO6.jpg" alt="Momento Run & Samba 6" loading="lazy">
+          <span class="photo-number">06 / 09</span>
+        </article>
 
-        <div class="home-gallery-item">
-            <img
-                src="img/PHOTO3.jpg"
-                alt="Experiência Run & Samba"
-            >
-        </div>
+        <article class="home-gallery-item">
+          <img src="img/PHOTO7.jpg" alt="Momento Run & Samba 7" loading="lazy">
+          <span class="photo-number">07 / 09</span>
+        </article>
 
+        <article class="home-gallery-item">
+          <img src="img/PHOTO8.jpg" alt="Momento Run & Samba 8" loading="lazy">
+          <span class="photo-number">08 / 09</span>
+        </article>
 
-        <div class="home-gallery-item">
-            <img
-                src="img/PHOTO4.jpg"
-                alt="Momento do evento"
-            >
-        </div>
+        <article class="home-gallery-item">
+          <img src="img/PHOTO9.jpg" alt="Momento Run & Samba 9" loading="lazy">
+          <span class="photo-number">09 / 09</span>
+        </article>
 
-
-        <div class="home-gallery-item">
-            <img
-                src="img/PHOTO5.jpg"
-                alt="Celebração Run & Samba"
-            >
-        </div>
-
-
-        <div class="home-gallery-item">
-            <img
-                src="img/PHOTO6.jpg"
-                alt="Run & Samba"
-            >
-        </div>
-
-
+      </div>
     </div>
-
 
     <div class="container gallery-footer">
+      <div class="gallery-progress">
+        <span id="galleryCurrent">01</span>
+        <div class="progress-track"><span id="galleryProgress"></span></div>
+        <span>09</span>
+      </div>
 
-        <span>
-            REGISTROS OFICIAIS DO EVENTO
-        </span>
-
-
-        <a
-            href="https://banlek.com/album/243a33"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            COMPRAR FOTOS ↗
-        </a>
-
+      <a href="https://banlek.com/album/243a33" target="_blank" rel="noopener noreferrer" class="gallery-buy">
+        ENCONTRAR E COMPRAR FOTOS <span>↗</span>
+      </a>
     </div>
+  </section>
 
-</section>
-
-
-
-<!-- =========================================================
-     SOBRE
-========================================================= -->
-
-<section class="home-about">
-
+  <!-- SOBRE -->
+  <section class="home-about" id="sobre">
     <div class="container about-grid">
+      <div class="about-index">
+        <span>02</span>
+        <div></div>
+        <small>NOSSA ESSÊNCIA</small>
+      </div>
 
+      <div class="about-content">
+        <span class="section-label">MAIS QUE UMA CORRIDA</span>
+        <h2>UMA EXPERIÊNCIA<br><span>PARA VIVER.</span></h2>
 
-        <div class="about-number">
+        <p class="about-highlight">
+          Não é apenas sobre a distância percorrida.
+          É sobre tudo o que acontece no caminho.
+        </p>
 
-            <span>
-                02
-            </span>
+        <p class="about-text">
+          O Run & Samba reúne esporte, superação, estrutura e música
+          em um evento pensado para quem deseja desafiar os próprios
+          limites e celebrar cada conquista.
+        </p>
 
-            <small>
-                O EVENTO
-            </small>
+        <a href="sobre.html" class="text-link">CONHEÇA NOSSA HISTÓRIA <span>↗</span></a>
+      </div>
 
-        </div>
-
-
-        <div class="about-content">
-
-            <span class="section-label">
-                MAIS QUE UMA CORRIDA
-            </span>
-
-
-            <h2>
-
-                UMA EXPERIÊNCIA
-
-                <span>
-                    PARA VIVER.
-                </span>
-
-            </h2>
-
-
-            <p class="about-highlight">
-
-                O Run & Samba transforma quilômetros
-                em momentos inesquecíveis.
-
-            </p>
-
-
-            <p>
-
-                Da largada à chegada, cada detalhe é pensado
-                para criar uma experiência completa, com esporte,
-                estrutura, energia, música ao vivo e celebração.
-
-            </p>
-
-        </div>
-
-
+      <div class="about-stamp">
+        <span>RUN</span>
+        <strong>&</strong>
+        <span>SAMBA</span>
+        <small>LUZIÂNIA · 2026</small>
+      </div>
     </div>
+  </section>
 
-</section>
-
-
-
-<!-- =========================================================
-     EXPERIÊNCIA
-========================================================= -->
-
-<section class="home-experience">
-
+  <!-- EXPERIÊNCIA -->
+  <section class="home-experience">
     <div class="container">
-
-
-        <div class="section-top experience-heading">
-
-            <div>
-
-                <span class="section-label">
-                    03 • A EXPERIÊNCIA
-                </span>
-
-
-                <h2>
-
-                    TUDO O QUE FAZ
-
-                    <span>
-                        PARTE DO EVENTO.
-                    </span>
-
-                </h2>
-
-            </div>
-
-
-            <p>
-
-                Uma experiência completa
-                do início ao fim.
-
-            </p>
-
+      <div class="section-heading experience-heading">
+        <div>
+          <span class="section-label"><span>03</span> · A EXPERIÊNCIA</span>
+          <h2>CADA DETALHE.<br><span>UMA MOTIVAÇÃO.</span></h2>
         </div>
+        <p>Uma experiência criada para acompanhar você da largada à chegada.</p>
+      </div>
 
+      <div class="experience-grid">
+        <article class="experience-card">
+          <span class="experience-number">01</span>
+          <div class="experience-icon">RUN<span>↗</span></div>
+          <div class="experience-card-bottom">
+            <h3>CORRIDA</h3>
+            <p>Escolha seu desafio: 5K ou 10K.</p>
+          </div>
+        </article>
 
-        <!-- CARDS COMPACTOS -->
+        <article class="experience-card card-dark">
+          <span class="experience-number">02</span>
+          <div class="experience-icon">CHIP<span>↗</span></div>
+          <div class="experience-card-bottom">
+            <h3>CRONOMETRAGEM</h3>
+            <p>Chip eletrônico para registro do tempo.</p>
+          </div>
+        </article>
 
-        <div class="experience-grid">
+        <article class="experience-card">
+          <span class="experience-number">03</span>
+          <div class="experience-icon">KIT<span>↗</span></div>
+          <div class="experience-card-bottom">
+            <h3>KIT ATLETA</h3>
+            <p>Os itens previstos para sua jornada.</p>
+          </div>
+        </article>
 
-
-            <article class="experience-card">
-
-                <span class="experience-number">
-                    01
-                </span>
-
-
-                <div class="experience-icon">
-                    RUN
-                </div>
-
-
-                <div>
-
-                    <h3>
-                        CORRIDA
-                    </h3>
-
-                    <p>
-                        Percursos de 5K e 10K.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-
-            <article class="experience-card experience-dark">
-
-                <span class="experience-number">
-                    02
-                </span>
-
-
-                <div class="experience-icon">
-                    CHIP
-                </div>
-
-
-                <div>
-
-                    <h3>
-                        CRONOMETRAGEM
-                    </h3>
-
-                    <p>
-                        Chip e tempo oficial.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-
-            <article class="experience-card">
-
-                <span class="experience-number">
-                    03
-                </span>
-
-
-                <div class="experience-icon">
-                    KIT
-                </div>
-
-
-                <div>
-
-                    <h3>
-                        KIT ATLETA
-                    </h3>
-
-                    <p>
-                        Feito para essa jornada.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-
-            <article class="experience-card experience-yellow">
-
-                <span class="experience-number">
-                    04
-                </span>
-
-
-                <div class="experience-icon">
-                    ♪
-                </div>
-
-
-                <div>
-
-                    <h3>
-                        MÚSICA AO VIVO
-                    </h3>
-
-                    <p>
-                        Energia depois da chegada.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-        </div>
-
-
+        <article class="experience-card card-green">
+          <span class="experience-number">04</span>
+          <div class="experience-icon">♪<span>↗</span></div>
+          <div class="experience-card-bottom">
+            <h3>MÚSICA AO VIVO</h3>
+            <p>Mais energia para celebrar a chegada.</p>
+          </div>
+        </article>
+      </div>
+      <p class="experience-note">*Confira no regulamento os detalhes oficiais da prova e dos itens do kit.</p>
     </div>
+  </section>
 
-</section>
-
-
-
-<!-- =========================================================
-     BANNER DA CORRIDA
-========================================================= -->
-
-<section class="home-run-banner">
-
-    <div class="run-banner-overlay"></div>
-
+  <!-- BANNER -->
+  <section class="home-run-banner">
+    <div class="banner-orbit banner-orbit-one"></div>
+    <div class="banner-orbit banner-orbit-two"></div>
 
     <div class="container run-banner-content">
+      <span class="section-label">04 · RUN & SAMBA 2026</span>
+      <h2>A LARGADA<br><span>É SÓ O COMEÇO.</span></h2>
+      <p>Desafie seus limites. Cruze a linha de chegada. Celebre sua conquista.</p>
 
-        <span class="section-label">
-            04 • RUN & SAMBA 2026
-        </span>
-
-
-        <h2>
-
-            A LARGADA
-
-            <span>
-                É SÓ O COMEÇO.
-            </span>
-
-        </h2>
-
-
-        <p>
-
-            Corra, supere seus limites,
-            celebre a chegada e viva
-            uma experiência inesquecível.
-
-        </p>
-
-
-        <div class="run-banner-info">
-
-            <strong>
-                20 NOV
-            </strong>
-
-            <span>
-                LUZIÂNIA • GO
-            </span>
-
-        </div>
-
+      <div class="run-banner-info">
+        <div><strong>20</strong><span>NOVEMBRO</span></div>
+        <div class="banner-info-divider"></div>
+        <div><strong>LUZIÂNIA</strong><span>GOIÁS · BRASIL</span></div>
+      </div>
     </div>
+  </section>
 
-</section>
-
-
-
-<!-- =========================================================
-     CTA FINAL
-========================================================= -->
-
-<section class="home-final-cta">
-
+  <!-- CTA FINAL -->
+  <section class="home-final-cta">
     <div class="container home-final-content">
-
-        <span class="section-label">
-            RUN & SAMBA • 2ª EDIÇÃO
-        </span>
-
-
-        <h2>
-
-            SUA CORRIDA.
-
-            <strong>
-                SUA EXPERIÊNCIA.
-            </strong>
-
-        </h2>
-
-
-        <p>
-            20 de novembro de 2026 • Luziânia - GO
-        </p>
-
-
-        <a
-            href="inscricoes.html"
-            class="home-final-button"
-        >
-
-            GARANTIR MINHA VAGA
-
-            <span>
-                →
-            </span>
-
-        </a>
-
+      <span class="section-label">RUN & SAMBA · 2ª EDIÇÃO</span>
+      <h2>SEU PRÓXIMO<br><span>GRANDE DESAFIO.</span></h2>
+      <p>20 de novembro de 2026 <span>•</span> Luziânia - GO</p>
+      <a href="inscricoes.html" class="btn-primary final-button">
+        GARANTIR MINHA VAGA <span>↗</span>
+      </a>
+      <small>5K · 10K · CHIP DE CRONOMETRAGEM</small>
     </div>
-
-</section>
-
+  </section>
 
 </main>
 
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
 <footer class="footer">
+  <div class="container footer-main">
+    <a href="index.html" class="footer-logo">
+      <img src="img/LOGO.png" alt="Run & Samba">
+    </a>
+    <p>Corra. Sinta. Viva.</p>
+    <a href="#topo" class="back-top">VOLTAR AO TOPO ↑</a>
+  </div>
 
-    <div class="container footer-bottom">
-
-
-        <p class="footer-copy">
-
-            © 2026 RUN & SAMBA
-
-            <span>•</span>
-
-            TODOS OS DIREITOS RESERVADOS
-
-        </p>
-
-
-        <p class="footer-credit">
-
-            CRIADO POR
-
-            <strong>
-                iDIGITAL AGÊNCIA
-            </strong>
-
-        </p>
-
-
-    </div>
-
+  <div class="container footer-bottom">
+    <p>© 2026 RUN & SAMBA · TODOS OS DIREITOS RESERVADOS</p>
+    <p>DESENVOLVIDO POR <strong>S7SYSTEMS — PROGRAMAÇÃO & SOLUÇÕES DIGITAIS</strong></p>
+  </div>
 </footer>
 
-
-
-<!-- JAVASCRIPT -->
-
-<script
-    src="js/main.js"
-    defer
-></script>
-
-
 </body>
-
 </html>
